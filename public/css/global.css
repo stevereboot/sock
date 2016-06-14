@@ -1,0 +1,29 @@
+/* global.css */
+
+body {
+    padding-top: 50px;
+}
+
+/* ---------->>> Navbar <<<-----------*/
+.navbar {
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    .navbar-brand {
+        position: fixed;
+        left: 0;
+        padding-left: 60px;
+    }
+}
+
+.navbar-brand {
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #e3c720 !important;
+}
+
+.navbar-nav>li>a {
+    font-size: 16px;
+}

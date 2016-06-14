@@ -1,0 +1,12 @@
+/* style.css */
+
+/* ---------->>> Reset <<<-----------*/
+@import url("reset.css");
+
+/* ---------->>> Third Party <<<-----------*/
+@import url("../libs/bootstrap/dist/css/bootstrap.min.css");
+@import url("../libs/fontawesome/css/font-awesome.min.css");
+
+/* ---------->>> Custom <<<-----------*/
+@import url("global.css");
+@import url("chat.css");

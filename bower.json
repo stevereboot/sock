@@ -4,6 +4,7 @@
     "dependencies": {
         "jquery": "latest",
         "bootstrap": "latest",
+        "fontawesome": "latest",
         "socket.io-client": "latest"
     }
 }
