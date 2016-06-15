@@ -2,12 +2,8 @@ var express = require('express');
 var app = express();
 
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
-
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
+var io = require('./sockets').listen(http);
 
 http.listen(8080, function() {
     console.log('listening on port 8080');

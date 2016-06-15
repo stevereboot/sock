@@ -5,6 +5,9 @@
         "jquery": "latest",
         "bootstrap": "latest",
         "fontawesome": "latest",
-        "socket.io-client": "latest"
+        "socket.io-client": "latest",
+        "angular": "latest",
+        "ui-router": "latest",
+        "moment": "latest"
     }
 }
