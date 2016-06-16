@@ -23,5 +23,7 @@
 }
 
 .chat .msg .time {
-	margin-left: 10px;
+	margin: 0 10px;
+	font-size: 12px;
+	color: #777;
 }

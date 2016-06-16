@@ -9,11 +9,16 @@ appStates.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				url: '/',
 				templateUrl: 'app/main/main.html',
 				controller: 'main'
-			});
+			}).
+			state('login', {
+				url: '/login',
+				templateUrl: 'app/login/login.html',
+				controller: 'login'
+			});			
 
 		$urlRouterProvider.otherwise(function($injector, $location) {
 			var state = $injector.get('$state');
-			state.go('main');
+			state.go('login');
 		});
 
 		$locationProvider.html5Mode(true);

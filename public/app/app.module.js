@@ -1,14 +1,17 @@
 // public/app/app.module.js
 
 var thirdPartyApps = [
-    'ui.router'
+    'ui.router',
+    'ngEmbed'
 ]
 
 var sharedApps = [
+	'authService'
 ]
 
 var componentApps = [
     'appStates',
+    'login.controller',
     'main.controller',
     'main.service'
 ]

@@ -8,6 +8,8 @@
         "socket.io-client": "latest",
         "angular": "latest",
         "ui-router": "latest",
-        "moment": "latest"
+        "moment": "latest",
+        "angular-sanitize": "latest",
+        "ng-embed": "latest"
     }
 }
