@@ -14,7 +14,7 @@
 
 									<div class="msg-body">
 										<div class="msg-user">{{m.username}}</div>
-										<div ng-bind-html="m.message"></div>
+										<div ng-bind-html="main.to_trusted(m.message)"></div>
 									</div>
 
 									<div ng-class="m.class == 'row chat-receive' ? 'time' : 'time pull-right'">{{m.timeString}}</div>
@@ -27,8 +27,10 @@
 						<div class="input-group">
 							<!-- <input type="text" class="form-control" placeholder="Message..." ng-model="main.chatmessage"> -->
 							
-							<div contenteditable class="form-control" data-type="input" contenteditable="true" placeholder="Message..." ng-model="main.chatmessage">
+							<div contenteditable id="chatInput" class="form-control" data-type="input" contenteditable="true" placeholder="Message..." ng-model="main.chatmessage">
 							</div>
+
+
 
 							<span class="input-group-btn">
 								<div class="btn-group">
@@ -37,7 +39,7 @@
 										<li style="padding: 0 4px;">
 											<table>
 											<tr ng-repeat="row in main.emojiList">
-												<td ng-repeat="e in row" style="padding: 2px;"><a href="" ng-click="main.select_emoji(e)"><ng-embed embed-data="e" embed-options="main.embedOptions"></a></td>
+												<td ng-repeat="e in row" style="padding: 2px;"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
 											</tr>
 											</table>
 										</li>

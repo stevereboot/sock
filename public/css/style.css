@@ -7,7 +7,6 @@
 @import url("../libs/bootstrap/dist/css/bootstrap.min.css");
 @import url("../libs/fontawesome/css/font-awesome.min.css");
 @import url("../libs/ng-embed/dist/ng-embed.min.css");
-@import url("../libs/angular-emoji-filter/dist/emoji.min.css");
 
 /* ---------->>> Custom <<<-----------*/
 @import url("global.css");

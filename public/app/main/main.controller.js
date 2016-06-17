@@ -8,11 +8,15 @@ main.controller('main',
 		'$state',
 		'mainService',
 		'authService',
+		'$sce',
+		'$compile',
 	function(
 		$scope,
 		$state,
 		mainService,
-		authService
+		authService,
+		$sce,
+		$compile
 	) {
 
 		$scope.main = {};
@@ -41,7 +45,6 @@ main.controller('main',
 		});
 
 		$scope.main.sendchat = function(message) {
-			console.log(message)
 			if (message && message.length > 0) {
 				// console.log(message);
 				socket.emit('chat_message', {
@@ -57,8 +60,6 @@ main.controller('main',
 
 		function getChat(msg) {
 			msg.class = 'row chat-receive';
-
-			console.log(msg)
 
 			if (msg.senderid == socket.id) {
 				msg.class = 'row chat-send';
@@ -90,39 +91,70 @@ main.controller('main',
 			tweetEmbed: false
 		}
 
-		var all_emoji = [':bowtie:', ':smile:', ':laughing:', ':blush:', ':smiley:', ':relaxed:', ':smirk:', ':heart_eyes:', ':kissing_heart:', ':kissing_closed_eyes:', ':flushed:', ':relieved:', ':satisfied:', ':grin:', ':wink:', ':stuck_out_tongue_winking_eye:', ':stuck_out_tongue_closed_eyes:', ':grinning:', ':kissing:', ':kissing_smiling_eyes:', ':stuck_out_tongue:', ':sleeping:', ':worried:', ':frowning:', ':anguished:', ':open_mouth:', ':grimacing:', ':confused:', ':hushed:', ':expressionless:', ':unamused:', ':sweat_smile:', ':sweat:', ':disappointed_relieved:', ':weary:', ':pensive:', ':disappointed:', ':confounded:', ':fearful:', ':cold_sweat:', ':persevere:', ':cry:', ':sob:', ':joy:', ':astonished:', ':scream:', ':neckbeard:', ':tired_face:', ':angry:', ':rage:', ':triumph:', ':sleepy:', ':yum:', ':mask:', ':sunglasses:', ':dizzy_face:', ':imp:', ':smiling_imp:', ':neutral_face:', ':no_mouth:', ':innocent:', ':alien:', ':yellow_heart:', ':blue_heart:', ':purple_heart:', ':heart:', ':green_heart:', ':broken_heart:', ':heartbeat:', ':heartpulse:', ':two_hearts:', ':revolving_hearts:', ':cupid:', ':sparkling_heart:', ':sparkles:', ':star:', ':star2:', ':dizzy:', ':boom:', ':collision:', ':anger:', ':exclamation:', ':question:', ':grey_exclamation:', ':grey_question:', ':zzz:', ':dash:', ':sweat_drops:', ':notes:', ':musical_note:', ':fire:', ':hankey:', ':poop:', ':shit:', ':+1:', ':thumbsup:', ':-1:', ':thumbsdown:', ':ok_hand:', ':punch:', ':facepunch:', ':fist:', ':v:', ':wave:', ':hand:', ':raised_hand:', ':open_hands:', ':point_up:', ':point_down:', ':point_left:', ':point_right:', ':raised_hands:', ':pray:', ':point_up_2:', ':clap:', ':muscle:', ':metal:', ':fu:', ':runner:', ':running:', ':couple:', ':family:', ':two_men_holding_hands:', ':two_women_holding_hands:', ':dancer:', ':dancers:', ':ok_woman:', ':no_good:', ':information_desk_person:', ':raising_hand:', ':bride_with_veil:', ':person_with_pouting_face:', ':person_frowning:', ':bow:', ':couplekiss:', ':couple_with_heart:', ':massage:', ':haircut:', ':nail_care:', ':boy:', ':girl:', ':woman:', ':man:', ':baby:', ':older_woman:', ':older_man:', ':person_with_blond_hair:', ':man_with_gua_pi_mao:', ':man_with_turban:', ':construction_worker:', ':cop:', ':angel:', ':princess:', ':smiley_cat:', ':smile_cat:', ':heart_eyes_cat:', ':kissing_cat:', ':smirk_cat:', ':scream_cat:', ':crying_cat_face:', ':joy_cat:', ':pouting_cat:', ':japanese_ogre:', ':japanese_goblin:', ':see_no_evil:', ':hear_no_evil:', ':speak_no_evil:', ':guardsman:', ':skull:', ':feet:', ':lips:', ':kiss:', ':droplet:', ':ear:', ':eyes:', ':nose:', ':tongue:', ':love_letter:', ':bust_in_silhouette:', ':busts_in_silhouette:', ':speech_balloon:', ':thought_balloon:', ':feelsgood:', ':finnadie:', ':goberserk:', ':godmode:', ':hurtrealbad:', ':rage1:', ':rage2:', ':rage3:', ':rage4:', ':suspect:', ':trollface:'];
+		emoji_map = []
+		mainService.getEmojiList({file: 'emoji.json'}).then(function(resp) {
 		
-		var emoji_chunk = 6;
-		var emoji_list = [];
+			var emoji_chunk = 6;
+			var emoji_list = [];
 
-		for (var i=0; i<all_emoji.length; i+=emoji_chunk) {
-			var a = all_emoji.slice(i,i+emoji_chunk);
-			emoji_list.push(a);
+			var foo = resp.slice(0, 36);
+
+			for (var i = 0; i < foo.length; i += emoji_chunk) {
+				var a = foo.slice(i, i + emoji_chunk);
+				emoji_list.push(a);
+			}
+
+			$scope.main.emojiList = emoji_list;
+		});
+
+		$scope.main.to_trusted = function(html) {
+			return $sce.trustAsHtml(html);
 		}
 
-		$scope.main.emojiList = emoji_list;
+		$scope.main.emoji_img = function(emoji) {
+			var size = 20;
+			return $scope.main.to_trusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
+		}
 
 		$scope.main.select_emoji = function(emoji) {	
-			console.log(emoji);
-			// remove the colons
-
-			// lookup image code
-
-
-			if ($scope.main.chatmessage) {
-				$scope.main.chatmessage = $scope.main.chatmessage + '<img src="img/img-apple-64/1f344.png" height="25" width="25" alt="'+emoji+'">';
-
-
-
-			} else {
-				$scope.main.chatmessage = '<img src="img/img-apple-64/1f344.png">';
-				// $scope.main.chatmessage = '<img src="//i.stack.imgur.com/IjpTt.png">';
-				// $scope.main.chatmessage = '<i class="emoticon emoticon-smile" title=":smile:"></i>';
-			}
-			
+			addHtmlAtCaret($scope.main.emoji_img(emoji), 'chatInput');	
 		}
 
+		function addHtmlAtCaret(html, id) {
+			document.getElementById(id).focus();
+			var sel, range;
+			if (window.getSelection) {
+				// IE9 and non-IE
+				sel = window.getSelection();
+				if (sel.getRangeAt && sel.rangeCount) {
+					range = sel.getRangeAt(0);
+					range.deleteContents();
 
+					// Range.createContextualFragment() would be useful here but is
+					// non-standard and not supported in all browsers (IE9, for one)
+					var el = document.createElement("div");
+					el.innerHTML = html;
+					$compile(el)($scope);
+					var frag = document.createDocumentFragment(), node, lastNode;
+					while ( (node = el.firstChild) ) {
+						lastNode = frag.appendChild(node);
+					}
+					range.insertNode(frag);
+
+					// Preserve the selection
+					if (lastNode) {
+						range = range.cloneRange();
+						range.setStartAfter(lastNode);
+						range.collapse(true);
+						sel.removeAllRanges();
+						sel.addRange(range);
+					}
+				}
+			} else if (document.selection && document.selection.type != "Control") {
+			// IE < 9
+				document.selection.createRange().pasteHTML(html);
+			}
+		}
 
 	}
 ]).directive("contenteditable", function() {
@@ -143,4 +175,4 @@ main.controller('main',
       });
     }
   };
-});
+})

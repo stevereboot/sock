@@ -4,9 +4,9 @@ var mainSvc = angular.module('main.service', []);
 
 mainSvc.service('mainService', ['$http', '$q',
 	function($http, $q) {
-		this.getAvatar = function(input) {
+		this.getEmojiList = function(input) {
 			return $q(function(resolve, reject) {
-				$http.get('/api/main/getavatar' + '/' + input.username).then(function(data) {
+				$http.get('/img/' + input.file).then(function(data) {
 					resolve(data.data);
 				});
 			});
