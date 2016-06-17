@@ -4,11 +4,11 @@
     background-color: #F5F5F5;
 }
 
-.chat .chat-receive p {
+.chat .chat-receive .msg-body {
     background-color: #FFF;
 }
 
-.chat .chat-send p {
+.chat .chat-send .msg-body {
     background-color: #DDD;
 }
 
@@ -16,10 +16,16 @@
 	margin-bottom: 10px;
 }
 
-.chat .msg p {
-	padding: 10px;
+.chat .msg .msg-body {
+	padding: 5px 10px 10px 10px;
 	margin-bottom: 5px;
 	border-radius: 10px;
+}
+
+.chat .msg .msg-body .msg-user {
+	font-size: 12px;
+	font-weight: 700;
+	padding-bottom: 5px;
 }
 
 .chat .msg .time {

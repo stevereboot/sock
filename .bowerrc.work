@@ -1,0 +1,6 @@
+{
+    "directory": "public/libs/",
+        "proxy": "http://proxy.bloomberg.com:81",
+        "https-proxy": "http://proxy.bloomberg.com:81",
+        "strict-ssl": false
+}

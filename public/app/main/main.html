@@ -10,7 +10,13 @@
 							<div ng-class="m.class">
 								<div class="col-sm-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatars/{{m.avatar}}" height="35" width="35" alt="Profile 1"></div>
 								<div ng-class="m.class == 'row chat-receive' ? 'col-sm-8 msg' : 'col-sm-8 col-sm-offset-4 msg'">
-									<p><ng-embed embed-data="m.message" embed-options="main.embedOptions"></ng-embed></p>
+<!-- 									<div class="msg-body"><div class="msg-user">{{m.username}}</div><ng-embed embed-data="m.message" embed-options="main.embedOptions"></ng-embed></div> -->
+
+									<div class="msg-body">
+										<div class="msg-user">{{m.username}}</div>
+										<div ng-bind-html="m.message"></div>
+									</div>
+
 									<div ng-class="m.class == 'row chat-receive' ? 'time' : 'time pull-right'">{{m.timeString}}</div>
 								</div>
 							</div>
@@ -19,8 +25,24 @@
 					</div>
 					<div class="panel-footer">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Message..." ng-model="main.chatmessage">
+							<!-- <input type="text" class="form-control" placeholder="Message..." ng-model="main.chatmessage"> -->
+							
+							<div contenteditable class="form-control" data-type="input" contenteditable="true" placeholder="Message..." ng-model="main.chatmessage">
+							</div>
+
 							<span class="input-group-btn">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-lg fa-smile-o" aria-hidden="true" style="color: #555;"></i></button>
+									<ul class="dropdown-menu">
+										<li style="padding: 0 4px;">
+											<table>
+											<tr ng-repeat="row in main.emojiList">
+												<td ng-repeat="e in row" style="padding: 2px;"><a href="" ng-click="main.select_emoji(e)"><ng-embed embed-data="e" embed-options="main.embedOptions"></a></td>
+											</tr>
+											</table>
+										</li>
+									</ul>
+								</div>
 								<button class="btn btn-default" type="button"><i class="fa fa-chevron-right" aria-hidden="true" ng-click="main.sendchat(main.chatmessage)"></i></button>
 							</span>
 						</div><!-- /input-group -->
