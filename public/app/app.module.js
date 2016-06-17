@@ -1,8 +1,7 @@
 // public/app/app.module.js
 
 var thirdPartyApps = [
-    'ui.router',
-    'ngEmbed'
+    'ui.router'
 ]
 
 var sharedApps = [
