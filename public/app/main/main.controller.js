@@ -93,11 +93,17 @@ main.controller('main',
 
 		emoji_map = []
 		mainService.getEmojiList({file: 'emoji.json'}).then(function(resp) {
-		
+
+			var emoji_lib = groupBy(resp, 'category');
+
+			emoji_lib.People.sort(function(a, b) { 
+				return a.sort_order - b.sort_order;
+			})
+
 			var emoji_chunk = 6;
 			var emoji_list = [];
 
-			var foo = resp.slice(0, 36);
+			var foo = emoji_lib.People.slice(0, 60);
 
 			for (var i = 0; i < foo.length; i += emoji_chunk) {
 				var a = foo.slice(i, i + emoji_chunk);
@@ -106,6 +112,14 @@ main.controller('main',
 
 			$scope.main.emojiList = emoji_list;
 		});
+
+		function groupBy(arr, property) {
+			return arr.reduce(function(memo, x) {
+				if (!memo[x[property]]) { memo[x[property]] = []; }
+				memo[x[property]].push(x);
+				return memo;
+			}, {});
+		}
 
 		$scope.main.to_trusted = function(html) {
 			return $sce.trustAsHtml(html);
