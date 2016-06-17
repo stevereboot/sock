@@ -10,7 +10,6 @@
 							<div ng-class="m.class">
 								<div class="col-sm-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatars/{{m.avatar}}" height="35" width="35" alt="Profile 1"></div>
 								<div ng-class="m.class == 'row chat-receive' ? 'col-sm-8 msg' : 'col-sm-8 col-sm-offset-4 msg'">
-<!-- 									<div class="msg-body"><div class="msg-user">{{m.username}}</div><ng-embed embed-data="m.message" embed-options="main.embedOptions"></ng-embed></div> -->
 
 									<div class="msg-body">
 										<div class="msg-user">{{m.username}}</div>
@@ -25,12 +24,9 @@
 					</div>
 					<div class="panel-footer">
 						<div class="input-group">
-							<!-- <input type="text" class="form-control" placeholder="Message..." ng-model="main.chatmessage"> -->
-							
+
 							<div contenteditable id="chatInput" class="form-control" data-type="input" contenteditable="true" placeholder="Message..." ng-model="main.chatmessage">
 							</div>
-
-
 
 							<span class="input-group-btn">
 								<div class="btn-group">
