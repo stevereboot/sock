@@ -31,6 +31,7 @@ main.controller('main',
 			if ($scope.main.login) {
 				// do stuff if logged in
 				getAvatar();
+				$scope.main.getEmoji('People');
 
 				// Connect to socket if logged in
 				socket = io();
@@ -103,38 +104,47 @@ main.controller('main',
 			return toolsService.toTrusted(html);
 		}
 
-		emoji_map = []
-		mainService.getEmojiList({file: 'emoji.json'}).then(function(resp) {
+		$scope.main.getEmoji = function(category) {
+			mainService.getEmojiList({file: 'emoji.json'}).then(function(resp) {
 
-			var emoji_lib = toolsService.groupBy(resp, 'category');
+				var emoji_lib = toolsService.groupBy(resp, 'category');
 
-			emoji_lib.People.sort(function(a, b) { 
-				return a.sort_order - b.sort_order;
-			})
+				emoji_lib[category].sort(function(a, b) { 
+					return a.sort_order - b.sort_order;
+				})
 
-			var emoji_chunk = 6;
-			var emoji_list = [];
+				var emoji_chunk = 6;
+				var emoji_list = [];
 
-			var foo = emoji_lib.People.slice(0, 60);
+				// var foo = emoji_lib[category].slice(0, 60);
+				var foo = emoji_lib[category];
 
-			for (var i = 0; i < foo.length; i += emoji_chunk) {
-				var a = foo.slice(i, i + emoji_chunk);
-				emoji_list.push(a);
-			}
+				for (var i = 0; i < foo.length; i += emoji_chunk) {
+					var a = foo.slice(i, i + emoji_chunk);
+					emoji_list.push(a);
+				}
 
-			$scope.main.emojiList = emoji_list;
-		});
+				$scope.main.emojiList = emoji_list;
+			});
+		}
 
 		$scope.main.emoji_img = function(emoji) {
 			var size = 24;
 			// return $scope.main.to_trusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
 			return toolsService.toTrusted('<img src="img/emoji/' + emoji.image + '" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
-		
 		}
 
 		$scope.main.select_emoji = function(emoji) {	
 			addHtmlAtCaret($scope.main.emoji_img(emoji), 'chatInput');
 		}
+
+		$scope.main.toggleEmoji = function(event) {
+			$scope.main.emojiPanel = !$scope.main.emojiPanel;
+			console.log($scope.main.emojiPanel)
+			// $scope.$apply();
+		}
+
+		$scope.main.emojiPanel = false;
 
 		function addHtmlAtCaret(html, id) {
 			document.getElementById(id).focus();
@@ -219,4 +229,23 @@ main.controller('main',
 			});
 		}
 	}
-}]);
+}]).directive('clickAnywhereButHere', function($document, $parse) {
+    return {
+        restrict: 'A',
+        scope: {
+            callback : '=clickAnywhereButHere'
+        },
+        link: function(scope, element, attr, ctrl) {
+            var handler = function(event) {
+                if (!element[0].contains(event.target)) {
+                    scope.callback(event);
+                 }
+            };
+
+            $document.on('click', handler);
+            scope.$on('$destroy', function() {
+                $document.off('click', handler);
+            });
+        }
+    }
+});

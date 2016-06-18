@@ -32,15 +32,19 @@
 								<div contenteditable id="chatInput" class="form-control" data-type="input" contenteditable="true" placeholder="Message..." ng-model="main.chatmessage">
 								</div>
 
-								<span class="input-group-btn">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-lg fa-smile-o" aria-hidden="true" style="color: #555;"></i></button>
-										<ul class="dropdown-menu">
+								<span class="input-group-btn dropup">
+									<div ng-class="main.emojiPanel ? 'btn-group open' : 'btn-group'">
+										<button type="button" class="btn btn-default dropdown-toggle dropup" aria-haspopup="true" aria-expanded="false"><i class="fa fa-lg fa-smile-o" aria-hidden="true" ng-click="main.toggleEmoji()" style="color: #555;"></i></button>
+										<ul class="dropdown-menu dropdown-menu-right" style="height: 180px; overflow-y: scroll; overflow-x: hidden;" click-anywhere-but-here="main.toggleEmoji">
 											<li style="padding: 0 4px;">
 												<table>
-												<tr ng-repeat="row in main.emojiList">
-													<td ng-repeat="e in row" style="padding: 2px;"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
-												</tr>
+													<tr>
+														<td style="padding: 5px;"><img src="img/img_trans.gif" alt="Smiley's and People" style="width:24px; height:29px; background: url(img/emoji/category.png) -9px -34px;" ng-click="main.getEmoji('People')"></td>
+														<td style="padding: 5px;"><img src="img/img_trans.gif" alt="Animals and Nature" style="width:24px; height:29px; background: url(img/emoji/category.png) -9px -145px;" ng-click="main.getEmoji('Nature')"></td>														
+													</tr>
+													<tr ng-repeat="row in main.emojiList">
+														<td ng-repeat="e in row" style="padding: 5px;"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
+													</tr>
 												</table>
 											</li>
 										</ul>
