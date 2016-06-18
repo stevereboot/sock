@@ -8,14 +8,14 @@ main.controller('main',
 		'$state',
 		'mainService',
 		'authService',
-		'$sce',
+		'toolsService',
 		'$compile',
 	function(
 		$scope,
 		$state,
 		mainService,
 		authService,
-		$sce,
+		toolsService,
 		$compile
 	) {
 
@@ -30,7 +30,7 @@ main.controller('main',
 
 			if ($scope.main.login) {
 				// do stuff if logged in
-				// getChildren();
+				getAvatar();
 
 				// Connect to socket if logged in
 				socket = io();
@@ -43,6 +43,14 @@ main.controller('main',
 				$state.go('login');
 			}
 		});
+
+		function getAvatar() {
+			mainService.getAvatar({
+				username: $scope.main.login
+			}).then(function(resp) {
+				$scope.main.myAvatar = resp.avatar;
+			});
+		}
 
 		$scope.main.sendchat = function(message) {
 			if (message && message.length > 0) {
@@ -91,10 +99,14 @@ main.controller('main',
 			tweetEmbed: false
 		}
 
+		$scope.main.toTrusted = function(html) {
+			return toolsService.toTrusted(html);
+		}
+
 		emoji_map = []
 		mainService.getEmojiList({file: 'emoji.json'}).then(function(resp) {
 
-			var emoji_lib = groupBy(resp, 'category');
+			var emoji_lib = toolsService.groupBy(resp, 'category');
 
 			emoji_lib.People.sort(function(a, b) { 
 				return a.sort_order - b.sort_order;
@@ -113,22 +125,10 @@ main.controller('main',
 			$scope.main.emojiList = emoji_list;
 		});
 
-		function groupBy(arr, property) {
-			return arr.reduce(function(memo, x) {
-				if (!memo[x[property]]) { memo[x[property]] = []; }
-				memo[x[property]].push(x);
-				return memo;
-			}, {});
-		}
-
-		$scope.main.to_trusted = function(html) {
-			return $sce.trustAsHtml(html);
-		}
-
 		$scope.main.emoji_img = function(emoji) {
 			var size = 24;
 			// return $scope.main.to_trusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
-			return $scope.main.to_trusted('<img src="img/img-apple-64/' + emoji.image + '" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
+			return toolsService.toTrusted('<img src="img/emoji/' + emoji.image + '" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
 		
 		}
 

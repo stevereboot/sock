@@ -1,0 +1,1337 @@
+[
+  {
+    "short_name": "anteater",
+    "image": "anteater.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "bat",
+    "image": "bat.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "beetle",
+    "image": "beetle.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "bulldog",
+    "image": "bulldog.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "butterfly",
+    "image": "butterfly.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "camel",
+    "image": "camel.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "cat",
+    "image": "cat.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "chameleon",
+    "image": "chameleon.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "clown-fish",
+    "image": "clown-fish.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "cobra",
+    "image": "cobra.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "cow",
+    "image": "cow.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "crab",
+    "image": "crab.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "crocodile",
+    "image": "crocodile.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "duck",
+    "image": "duck.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "elephant",
+    "image": "elephant.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "frog",
+    "image": "frog.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "giraffe",
+    "image": "giraffe.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "hen",
+    "image": "hen.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "hippopotamus",
+    "image": "hippopotamus.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "kangaroo",
+    "image": "kangaroo.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "lion",
+    "image": "lion.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "llama",
+    "image": "llama.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "macaw",
+    "image": "macaw.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "monkey",
+    "image": "monkey.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "moose",
+    "image": "moose.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "mouse",
+    "image": "mouse.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "octopus",
+    "image": "octopus.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "ostrich",
+    "image": "ostrich.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "owl",
+    "image": "owl.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "panda",
+    "image": "panda.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "pelican",
+    "image": "pelican.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "penguin",
+    "image": "penguin.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "pig",
+    "image": "pig.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "rabbit",
+    "image": "rabbit.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "racoon",
+    "image": "racoon.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "ray",
+    "image": "ray.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "rhinoceros",
+    "image": "rhinoceros.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "sea-cow",
+    "image": "sea-cow.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "shark",
+    "image": "shark.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "sheep",
+    "image": "sheep.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "siberian-husky",
+    "image": "siberian-husky.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "sloth",
+    "image": "sloth.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "snake",
+    "image": "snake.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "spider",
+    "image": "spider.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "squirrel",
+    "image": "squirrel.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "swan",
+    "image": "swan.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "tiger",
+    "image": "tiger.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "toucan",
+    "image": "toucan.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "turtle",
+    "image": "turtle.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "whale",
+    "image": "whale.png",
+    "category": "animal"
+  },
+  {
+    "short_name": "abacus",
+    "image": "abacus.png",
+    "category": "education"
+  },
+  {
+    "short_name": "alarm-clock",
+    "image": "alarm-clock.png",
+    "category": "education"
+  },
+  {
+    "short_name": "american-football",
+    "image": "american-football.png",
+    "category": "education"
+  },
+  {
+    "short_name": "apple",
+    "image": "apple.png",
+    "category": "education"
+  },
+  {
+    "short_name": "backpack",
+    "image": "backpack.png",
+    "category": "education"
+  },
+  {
+    "short_name": "basketball",
+    "image": "basketball.png",
+    "category": "education"
+  },
+  {
+    "short_name": "bell",
+    "image": "bell.png",
+    "category": "education"
+  },
+  {
+    "short_name": "blackboard-1",
+    "image": "blackboard-1.png",
+    "category": "education"
+  },
+  {
+    "short_name": "blackboard",
+    "image": "blackboard.png",
+    "category": "education"
+  },
+  {
+    "short_name": "books-1",
+    "image": "books-1.png",
+    "category": "education"
+  },
+  {
+    "short_name": "books",
+    "image": "books.png",
+    "category": "education"
+  },
+  {
+    "short_name": "bookshelf",
+    "image": "bookshelf.png",
+    "category": "education"
+  },
+  {
+    "short_name": "briefcase",
+    "image": "briefcase.png",
+    "category": "education"
+  },
+  {
+    "short_name": "column",
+    "image": "column.png",
+    "category": "education"
+  },
+  {
+    "short_name": "compass",
+    "image": "compass.png",
+    "category": "education"
+  },
+  {
+    "short_name": "computer-mouse",
+    "image": "computer-mouse.png",
+    "category": "education"
+  },
+  {
+    "short_name": "desk",
+    "image": "desk.png",
+    "category": "education"
+  },
+  {
+    "short_name": "diploma-1",
+    "image": "diploma-1.png",
+    "category": "education"
+  },
+  {
+    "short_name": "diploma",
+    "image": "diploma.png",
+    "category": "education"
+  },
+  {
+    "short_name": "earth-globe",
+    "image": "earth-globe.png",
+    "category": "education"
+  },
+  {
+    "short_name": "eraser",
+    "image": "eraser.png",
+    "category": "education"
+  },
+  {
+    "short_name": "flask",
+    "image": "flask.png",
+    "category": "education"
+  },
+  {
+    "short_name": "fountain-pen",
+    "image": "fountain-pen.png",
+    "category": "education"
+  },
+  {
+    "short_name": "glasses",
+    "image": "glasses.png",
+    "category": "education"
+  },
+  {
+    "short_name": "light-bulb",
+    "image": "light-bulb.png",
+    "category": "education"
+  },
+  {
+    "short_name": "medal",
+    "image": "medal.png",
+    "category": "education"
+  },
+  {
+    "short_name": "microscope",
+    "image": "microscope.png",
+    "category": "education"
+  },
+  {
+    "short_name": "molecule",
+    "image": "molecule.png",
+    "category": "education"
+  },
+  {
+    "short_name": "mortarboard",
+    "image": "mortarboard.png",
+    "category": "education"
+  },
+  {
+    "short_name": "newtons-cradle",
+    "image": "newtons-cradle.png",
+    "category": "education"
+  },
+  {
+    "short_name": "notebook",
+    "image": "notebook.png",
+    "category": "education"
+  },
+  {
+    "short_name": "open-book",
+    "image": "open-book.png",
+    "category": "education"
+  },
+  {
+    "short_name": "owl",
+    "image": "owl.png",
+    "category": "education"
+  },
+  {
+    "short_name": "paint-brush",
+    "image": "paint-brush.png",
+    "category": "education"
+  },
+  {
+    "short_name": "palette",
+    "image": "palette.png",
+    "category": "education"
+  },
+  {
+    "short_name": "paperclip",
+    "image": "paperclip.png",
+    "category": "education"
+  },
+  {
+    "short_name": "pen",
+    "image": "pen.png",
+    "category": "education"
+  },
+  {
+    "short_name": "pencil",
+    "image": "pencil.png",
+    "category": "education"
+  },
+  {
+    "short_name": "physics",
+    "image": "physics.png",
+    "category": "education"
+  },
+  {
+    "short_name": "professor",
+    "image": "professor.png",
+    "category": "education"
+  },
+  {
+    "short_name": "school-bus",
+    "image": "school-bus.png",
+    "category": "education"
+  },
+  {
+    "short_name": "school",
+    "image": "school.png",
+    "category": "education"
+  },
+  {
+    "short_name": "scissors",
+    "image": "scissors.png",
+    "category": "education"
+  },
+  {
+    "short_name": "set-square",
+    "image": "set-square.png",
+    "category": "education"
+  },
+  {
+    "short_name": "student",
+    "image": "student.png",
+    "category": "education"
+  },
+  {
+    "short_name": "test-tubes",
+    "image": "test-tubes.png",
+    "category": "education"
+  },
+  {
+    "short_name": "test",
+    "image": "test.png",
+    "category": "education"
+  },
+  {
+    "short_name": "university",
+    "image": "university.png",
+    "category": "education"
+  },
+  {
+    "short_name": "violin",
+    "image": "violin.png",
+    "category": "education"
+  },
+  {
+    "short_name": "whistle",
+    "image": "whistle.png",
+    "category": "education"
+  },
+  {
+    "short_name": "alien",
+    "image": "alien.png",
+    "category": "space"
+  },
+  {
+    "short_name": "arrow",
+    "image": "arrow.png",
+    "category": "game"
+  },
+  {
+    "short_name": "axe",
+    "image": "axe.png",
+    "category": "game"
+  },
+  {
+    "short_name": "bishop",
+    "image": "bishop.png",
+    "category": "game"
+  },
+  {
+    "short_name": "bone",
+    "image": "bone.png",
+    "category": "game"
+  },
+  {
+    "short_name": "bow",
+    "image": "bow.png",
+    "category": "game"
+  },
+  {
+    "short_name": "brick",
+    "image": "brick.png",
+    "category": "game"
+  },
+  {
+    "short_name": "bricks",
+    "image": "bricks.png",
+    "category": "game"
+  },
+  {
+    "short_name": "castle",
+    "image": "castle.png",
+    "category": "game"
+  },
+  {
+    "short_name": "checkmate",
+    "image": "checkmate.png",
+    "category": "game"
+  },
+  {
+    "short_name": "chess-board",
+    "image": "chess-board.png",
+    "category": "game"
+  },
+  {
+    "short_name": "clock",
+    "image": "clock.png",
+    "category": "game"
+  },
+  {
+    "short_name": "clubs",
+    "image": "clubs.png",
+    "category": "game"
+  },
+  {
+    "short_name": "coin",
+    "image": "coin.png",
+    "category": "game"
+  },
+  {
+    "short_name": "diamond",
+    "image": "diamond.png",
+    "category": "game"
+  },
+  {
+    "short_name": "dices",
+    "image": "dices.png",
+    "category": "game"
+  },
+  {
+    "short_name": "dominoes",
+    "image": "dominoes.png",
+    "category": "game"
+  },
+  {
+    "short_name": "donkey",
+    "image": "donkey.png",
+    "category": "game"
+  },
+  {
+    "short_name": "flower",
+    "image": "flower.png",
+    "category": "game"
+  },
+  {
+    "short_name": "ghost",
+    "image": "ghost.png",
+    "category": "game"
+  },
+  {
+    "short_name": "hearts",
+    "image": "hearts.png",
+    "category": "game"
+  },
+  {
+    "short_name": "helmet",
+    "image": "helmet.png",
+    "category": "game"
+  },
+  {
+    "short_name": "ingot",
+    "image": "ingot.png",
+    "category": "game"
+  },
+  {
+    "short_name": "king",
+    "image": "king.png",
+    "category": "game"
+  },
+  {
+    "short_name": "knight",
+    "image": "knight.png",
+    "category": "game"
+  },
+  {
+    "short_name": "metroid",
+    "image": "metroid.png",
+    "category": "game"
+  },
+  {
+    "short_name": "mushroom-1",
+    "image": "mushroom-1.png",
+    "category": "game"
+  },
+  {
+    "short_name": "mushroom-2",
+    "image": "mushroom-2.png",
+    "category": "game"
+  },
+  {
+    "short_name": "mushroom",
+    "image": "mushroom.png",
+    "category": "game"
+  },
+  {
+    "short_name": "pacman-1",
+    "image": "pacman-1.png",
+    "category": "game"
+  },
+  {
+    "short_name": "pacman",
+    "image": "pacman.png",
+    "category": "game"
+  },
+  {
+    "short_name": "pawn",
+    "image": "pawn.png",
+    "category": "game"
+  },
+  {
+    "short_name": "pick",
+    "image": "pick.png",
+    "category": "game"
+  },
+  {
+    "short_name": "pinball",
+    "image": "pinball.png",
+    "category": "game"
+  },
+  {
+    "short_name": "ping-pong",
+    "image": "ping-pong.png",
+    "category": "game"
+  },
+  {
+    "short_name": "pipe",
+    "image": "pipe.png",
+    "category": "game"
+  },
+  {
+    "short_name": "poker-chip",
+    "image": "poker-chip.png",
+    "category": "game"
+  },
+  {
+    "short_name": "poker",
+    "image": "poker.png",
+    "category": "game"
+  },
+  {
+    "short_name": "puzzle",
+    "image": "puzzle.png",
+    "category": "game"
+  },
+  {
+    "short_name": "queen",
+    "image": "queen.png",
+    "category": "game"
+  },
+  {
+    "short_name": "rook",
+    "image": "rook.png",
+    "category": "game"
+  },
+  {
+    "short_name": "shovel",
+    "image": "shovel.png",
+    "category": "game"
+  },
+  {
+    "short_name": "spades",
+    "image": "spades.png",
+    "category": "game"
+  },
+  {
+    "short_name": "sword",
+    "image": "sword.png",
+    "category": "game"
+  },
+  {
+    "short_name": "symbol",
+    "image": "symbol.png",
+    "category": "game"
+  },
+  {
+    "short_name": "symbols",
+    "image": "symbols.png",
+    "category": "game"
+  },
+  {
+    "short_name": "zombie",
+    "image": "zombie.png",
+    "category": "game"
+  },
+  {
+    "short_name": "accordion",
+    "image": "accordion.png",
+    "category": "music"
+  },
+  {
+    "short_name": "amplifier-1",
+    "image": "amplifier-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "amplifier-2",
+    "image": "amplifier-2.png",
+    "category": "music"
+  },
+  {
+    "short_name": "amplifier-3",
+    "image": "amplifier-3.png",
+    "category": "music"
+  },
+  {
+    "short_name": "amplifier",
+    "image": "amplifier.png",
+    "category": "music"
+  },
+  {
+    "short_name": "balalaika",
+    "image": "balalaika.png",
+    "category": "music"
+  },
+  {
+    "short_name": "banjo",
+    "image": "banjo.png",
+    "category": "music"
+  },
+  {
+    "short_name": "bass-guitar",
+    "image": "bass-guitar.png",
+    "category": "music"
+  },
+  {
+    "short_name": "clarinet",
+    "image": "clarinet.png",
+    "category": "music"
+  },
+  {
+    "short_name": "cymbals",
+    "image": "cymbals.png",
+    "category": "music"
+  },
+  {
+    "short_name": "diapason",
+    "image": "diapason.png",
+    "category": "music"
+  },
+  {
+    "short_name": "drum-1",
+    "image": "drum-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "drum-2",
+    "image": "drum-2.png",
+    "category": "music"
+  },
+  {
+    "short_name": "drum-3",
+    "image": "drum-3.png",
+    "category": "music"
+  },
+  {
+    "short_name": "drum-4",
+    "image": "drum-4.png",
+    "category": "music"
+  },
+  {
+    "short_name": "drum",
+    "image": "drum.png",
+    "category": "music"
+  },
+  {
+    "short_name": "drumsticks-1",
+    "image": "drumsticks-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "drumsticks",
+    "image": "drumsticks.png",
+    "category": "music"
+  },
+  {
+    "short_name": "earphones-1",
+    "image": "earphones-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "earphones",
+    "image": "earphones.png",
+    "category": "music"
+  },
+  {
+    "short_name": "electric-guitar-1",
+    "image": "electric-guitar-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "electric-guitar",
+    "image": "electric-guitar.png",
+    "category": "music"
+  },
+  {
+    "short_name": "equalizer-1",
+    "image": "equalizer-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "equalizer",
+    "image": "equalizer.png",
+    "category": "music"
+  },
+  {
+    "short_name": "flute",
+    "image": "flute.png",
+    "category": "music"
+  },
+  {
+    "short_name": "french-horn",
+    "image": "french-horn.png",
+    "category": "music"
+  },
+  {
+    "short_name": "gong",
+    "image": "gong.png",
+    "category": "music"
+  },
+  {
+    "short_name": "harmonica",
+    "image": "harmonica.png",
+    "category": "music"
+  },
+  {
+    "short_name": "harp",
+    "image": "harp.png",
+    "category": "music"
+  },
+  {
+    "short_name": "headphones-1",
+    "image": "headphones-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "headphones",
+    "image": "headphones.png",
+    "category": "music"
+  },
+  {
+    "short_name": "ipod",
+    "image": "ipod.png",
+    "category": "music"
+  },
+  {
+    "short_name": "jukebox",
+    "image": "jukebox.png",
+    "category": "music"
+  },
+  {
+    "short_name": "maracas",
+    "image": "maracas.png",
+    "category": "music"
+  },
+  {
+    "short_name": "metronome",
+    "image": "metronome.png",
+    "category": "music"
+  },
+  {
+    "short_name": "mic",
+    "image": "mic.png",
+    "category": "music"
+  },
+  {
+    "short_name": "microphone-1",
+    "image": "microphone-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "microphone",
+    "image": "microphone.png",
+    "category": "music"
+  },
+  {
+    "short_name": "mixing-1",
+    "image": "mixing-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "mixing",
+    "image": "mixing.png",
+    "category": "music"
+  },
+  {
+    "short_name": "musical-note",
+    "image": "musical-note.png",
+    "category": "music"
+  },
+  {
+    "short_name": "oboe",
+    "image": "oboe.png",
+    "category": "music"
+  },
+  {
+    "short_name": "piano-1",
+    "image": "piano-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "piano-2",
+    "image": "piano-2.png",
+    "category": "music"
+  },
+  {
+    "short_name": "piano",
+    "image": "piano.png",
+    "category": "music"
+  },
+  {
+    "short_name": "piccolo",
+    "image": "piccolo.png",
+    "category": "music"
+  },
+  {
+    "short_name": "quaver-1",
+    "image": "quaver-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "quaver",
+    "image": "quaver.png",
+    "category": "music"
+  },
+  {
+    "short_name": "saxophone",
+    "image": "saxophone.png",
+    "category": "music"
+  },
+  {
+    "short_name": "tambourine-1",
+    "image": "tambourine-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "tambourine",
+    "image": "tambourine.png",
+    "category": "music"
+  },
+  {
+    "short_name": "timpani",
+    "image": "timpani.png",
+    "category": "music"
+  },
+  {
+    "short_name": "triangle",
+    "image": "triangle.png",
+    "category": "music"
+  },
+  {
+    "short_name": "trombone",
+    "image": "trombone.png",
+    "category": "music"
+  },
+  {
+    "short_name": "trumpet",
+    "image": "trumpet.png",
+    "category": "music"
+  },
+  {
+    "short_name": "tuba",
+    "image": "tuba.png",
+    "category": "music"
+  },
+  {
+    "short_name": "turntable-1",
+    "image": "turntable-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "turntable-2",
+    "image": "turntable-2.png",
+    "category": "music"
+  },
+  {
+    "short_name": "turntable",
+    "image": "turntable.png",
+    "category": "music"
+  },
+  {
+    "short_name": "ukelele",
+    "image": "ukelele.png",
+    "category": "music"
+  },
+  {
+    "short_name": "vinyls",
+    "image": "vinyls.png",
+    "category": "music"
+  },
+  {
+    "short_name": "violin-1",
+    "image": "violin-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "violin",
+    "image": "violin.png",
+    "category": "music"
+  },
+  {
+    "short_name": "workstation-1",
+    "image": "workstation-1.png",
+    "category": "music"
+  },
+  {
+    "short_name": "workstation-2",
+    "image": "workstation-2.png",
+    "category": "music"
+  },
+  {
+    "short_name": "workstation-3",
+    "image": "workstation-3.png",
+    "category": "music"
+  },
+  {
+    "short_name": "workstation-4",
+    "image": "workstation-4.png",
+    "category": "music"
+  },
+  {
+    "short_name": "workstation-5",
+    "image": "workstation-5.png",
+    "category": "music"
+  },
+  {
+    "short_name": "workstation",
+    "image": "workstation.png",
+    "category": "music"
+  },
+  {
+    "short_name": "xylophone",
+    "image": "xylophone.png",
+    "category": "music"
+  },
+  {
+    "short_name": "artificial-gravity-modulo",
+    "image": "artificial-gravity-modulo.png",
+    "category": "space"
+  },
+  {
+    "short_name": "astronaut-1",
+    "image": "astronaut-1.png",
+    "category": "space"
+  },
+  {
+    "short_name": "astronaut-2",
+    "image": "astronaut-2.png",
+    "category": "space"
+  },
+  {
+    "short_name": "astronaut",
+    "image": "astronaut.png",
+    "category": "space"
+  },
+  {
+    "short_name": "comet-1",
+    "image": "comet-1.png",
+    "category": "space"
+  },
+  {
+    "short_name": "comet",
+    "image": "comet.png",
+    "category": "space"
+  },
+  {
+    "short_name": "europa",
+    "image": "europa.png",
+    "category": "space"
+  },
+  {
+    "short_name": "hubble-space-telescope",
+    "image": "hubble-space-telescope.png",
+    "category": "space"
+  },
+  {
+    "short_name": "jupiter",
+    "image": "jupiter.png",
+    "category": "space"
+  },
+  {
+    "short_name": "lunar-module",
+    "image": "lunar-module.png",
+    "category": "space"
+  },
+  {
+    "short_name": "mars",
+    "image": "mars.png",
+    "category": "space"
+  },
+  {
+    "short_name": "mercury",
+    "image": "mercury.png",
+    "category": "space"
+  },
+  {
+    "short_name": "meteorite",
+    "image": "meteorite.png",
+    "category": "space"
+  },
+  {
+    "short_name": "milky-way",
+    "image": "milky-way.png",
+    "category": "space"
+  },
+  {
+    "short_name": "monkey",
+    "image": "monkey.png",
+    "category": "space"
+  },
+  {
+    "short_name": "moon-rover-1",
+    "image": "moon-rover-1.png",
+    "category": "space"
+  },
+  {
+    "short_name": "moon-rover",
+    "image": "moon-rover.png",
+    "category": "space"
+  },
+  {
+    "short_name": "moon",
+    "image": "moon.png",
+    "category": "space"
+  },
+  {
+    "short_name": "neptune",
+    "image": "neptune.png",
+    "category": "space"
+  },
+  {
+    "short_name": "observatory",
+    "image": "observatory.png",
+    "category": "space"
+  },
+  {
+    "short_name": "planet-earth-1",
+    "image": "planet-earth-1.png",
+    "category": "space"
+  },
+  {
+    "short_name": "planet-earth-2",
+    "image": "planet-earth-2.png",
+    "category": "space"
+  },
+  {
+    "short_name": "planet-earth-3",
+    "image": "planet-earth-3.png",
+    "category": "space"
+  },
+  {
+    "short_name": "planet-earth-4",
+    "image": "planet-earth-4.png",
+    "category": "space"
+  },
+  {
+    "short_name": "planet-earth",
+    "image": "planet-earth.png",
+    "category": "space"
+  },
+  {
+    "short_name": "satellite-1",
+    "image": "satellite-1.png",
+    "category": "space"
+  },
+  {
+    "short_name": "satellite-2",
+    "image": "satellite-2.png",
+    "category": "space"
+  },
+  {
+    "short_name": "satellite-dish",
+    "image": "satellite-dish.png",
+    "category": "space"
+  },
+  {
+    "short_name": "satellite",
+    "image": "satellite.png",
+    "category": "space"
+  },
+  {
+    "short_name": "saturn",
+    "image": "saturn.png",
+    "category": "space"
+  },
+  {
+    "short_name": "solar-system",
+    "image": "solar-system.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-ship-1",
+    "image": "space-ship-1.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-ship-2",
+    "image": "space-ship-2.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-ship-3",
+    "image": "space-ship-3.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-ship-4",
+    "image": "space-ship-4.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-ship-5",
+    "image": "space-ship-5.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-ship-6",
+    "image": "space-ship-6.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-ship-7",
+    "image": "space-ship-7.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-ship",
+    "image": "space-ship.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-station-1",
+    "image": "space-station-1.png",
+    "category": "space"
+  },
+  {
+    "short_name": "space-station",
+    "image": "space-station.png",
+    "category": "space"
+  },
+  {
+    "short_name": "spaceship-1",
+    "image": "spaceship-1.png",
+    "category": "space"
+  },
+  {
+    "short_name": "spaceship",
+    "image": "spaceship.png",
+    "category": "space"
+  },
+  {
+    "short_name": "sputnik",
+    "image": "sputnik.png",
+    "category": "space"
+  },
+  {
+    "short_name": "stargate",
+    "image": "stargate.png",
+    "category": "space"
+  },
+  {
+    "short_name": "sun",
+    "image": "sun.png",
+    "category": "space"
+  },
+  {
+    "short_name": "ufo",
+    "image": "ufo.png",
+    "category": "space"
+  },
+  {
+    "short_name": "uranus",
+    "image": "uranus.png",
+    "category": "space"
+  },
+  {
+    "short_name": "ursa-major",
+    "image": "ursa-major.png",
+    "category": "space"
+  },
+  {
+    "short_name": "venus",
+    "image": "venus.png",
+    "category": "space"
+  }
+]

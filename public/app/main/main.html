@@ -3,17 +3,20 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="panel panel-default chat">
-					<div class="panel-heading">Chat</div>
+					<div class="panel-heading">
+						<img ng-src="img/avatar/{{main.myAvatar}}" height="35" width="35" alt="{{main.login}}">
+						<span style="padding-left:10px">{{main.login}}</span>
+						</div> <!-- ./panel-heading -->
 					<div scroll-bottom="main.messagelist" class="panel-body" style="height: 400px; overflow-y: auto; overflow-x: hidden;">
 
 						<div ng-repeat="m in main.messagelist">
 							<div ng-class="m.class">
-								<div class="col-sm-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatars/{{m.avatar}}" height="35" width="35" alt="Profile 1"></div>
+								<div class="col-sm-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatar/{{m.avatar}}" height="35" width="35" alt="{{m.username}}"></div>
 								<div ng-class="m.class == 'row chat-receive' ? 'col-sm-8 msg' : 'col-sm-8 col-sm-offset-4 msg'">
 
 									<div class="msg-body">
 										<div class="msg-user">{{m.username}}</div>
-										<div ng-bind-html="main.to_trusted(m.message)"></div>
+										<div ng-bind-html="main.toTrusted(m.message)"></div>
 									</div>
 
 									<div ng-class="m.class == 'row chat-receive' ? 'time' : 'time pull-right'">{{m.timeString}}</div>

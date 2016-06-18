@@ -5,12 +5,14 @@ var thirdPartyApps = [
 ]
 
 var sharedApps = [
-	'authService'
+	'authService',
+	'toolsService'
 ]
 
 var componentApps = [
     'appStates',
     'login.controller',
+    'login.service',
     'main.controller',
     'main.service'
 ]

@@ -54,6 +54,24 @@
 							<input type="password" class="form-control" id="registerPasswordConfirm" placeholder="Confirm password" required autofocus ng-model="login.registerForm.passwordConfirm">
 						</div> <!-- /.form-group -->
 
+						<div class="form-group">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Choose Avatar <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li style="padding: 0 4px;">
+										<table>
+										<tr ng-repeat="row in login.avatarList">
+											<td ng-repeat="a in row" style="padding: 2px;"><a href="" ng-click="login.select_avatar(a)" ng-bind-html="login.avatar_img(a)"></td>
+										</tr>
+										</table>
+									</li>
+								</ul>
+							</div> <!-- /.btn-group -->
+							<span style="padding-left:10px;" ng-bind-html="login.selected_avatar_img"></span>
+						</div> <!-- /.form-group -->
+
 						<button type="submit" class="btn btn-md btn-primary btn-block" ng-click="login.create()">Create Account</button>
 
 						<div style="width: 100%; height: 10px; border-bottom: 1px solid #eee; text-align: center; margin: 20px 0;">

@@ -7,12 +7,16 @@ login.controller('login',
         '$scope',
         '$http',
         '$state',
+        'loginService',
         'authService',
+        'toolsService',
     function(
         $scope,
         $http,
         $state,
-        authService
+        loginService,
+        authService,
+        toolsService
     ) {
         $scope.login = {}
 
@@ -54,7 +58,7 @@ login.controller('login',
             }
 
             $scope.login.registerForm.admin = false;
-            $scope.login.registerForm.avatar = 'grey-circle.png';
+            $scope.login.registerForm.avatar = $scope.login.selected_avatar || 'user.png';
             $scope.login.registerForm.loginAfter = true;
 
             authService.create($scope.login.registerForm, function(resp) {
@@ -68,6 +72,39 @@ login.controller('login',
                 }
             });
         }
+
+        loginService.getAvatarList({file: 'avatar.json'}).then(function(resp) {
+
+            var avatar_lib = toolsService.groupBy(resp, 'category');
+
+            var category = 'animal';
+
+            avatar_lib[category].sort(function(a, b) { 
+                return a.sort_order - b.sort_order;
+            })
+
+            var chunk = 6;
+            var list = [];
+
+            var foo = avatar_lib[category].slice(0, 30);
+
+            for (var i = 0; i < foo.length; i += chunk) {
+                var a = foo.slice(i, i + chunk);
+                list.push(a);
+            }
+
+            $scope.login.avatarList = list;
+        });
+
+        $scope.login.avatar_img = function(avatar) {
+            var size = 35;
+            return toolsService.toTrusted('<img src="img/avatar/' + avatar.category + '/' + avatar.image + '" alt="' + avatar.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
+        }
+
+        $scope.login.select_avatar = function(avatar) {    
+            $scope.login.selected_avatar = avatar.category + '/' + avatar.image;
+            $scope.login.selected_avatar_img = $scope.login.avatar_img(avatar);
+        }        
 
 
     }
