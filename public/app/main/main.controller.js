@@ -10,19 +10,13 @@ main.controller('main',
 		'authService',
 		'$sce',
 		'$compile',
-		'$anchorScroll',
-		'$location',
-		'$timeout',
 	function(
 		$scope,
 		$state,
 		mainService,
 		authService,
 		$sce,
-		$compile,
-		$anchorScroll,
-		$location,
-		$timeout
+		$compile
 	) {
 
 		$scope.main = {};
@@ -52,7 +46,6 @@ main.controller('main',
 
 		$scope.main.sendchat = function(message) {
 			if (message && message.length > 0) {
-				// console.log(message);
 				socket.emit('chat_message', {
 					message: message,
 					senderid: socket.id,
@@ -85,11 +78,7 @@ main.controller('main',
 			$scope.main.messagelist.push(msg);
 
 			$scope.$apply();
-
-			$timeout(function() {
-				$location.hash('end');
-				$anchorScroll();
-			})			
+	
 		};
 
 		$scope.main.embedOptions = {
@@ -137,8 +126,10 @@ main.controller('main',
 		}
 
 		$scope.main.emoji_img = function(emoji) {
-			var size = 20;
-			return $scope.main.to_trusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
+			var size = 24;
+			// return $scope.main.to_trusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
+			return $scope.main.to_trusted('<img src="img/img-apple-64/' + emoji.image + '" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
+		
 		}
 
 		$scope.main.select_emoji = function(emoji) {	
@@ -174,6 +165,9 @@ main.controller('main',
 						sel.removeAllRanges();
 						sel.addRange(range);
 					}
+
+					$scope.main.chatmessage = document.getElementById(id).innerHTML;
+					
 				}
 			} else if (document.selection && document.selection.type != "Control") {
 			// IE < 9
@@ -181,32 +175,48 @@ main.controller('main',
 			}
 		}
 
+
 	}
 ]).directive('contenteditable', function() {
-  return {
-    require: 'ngModel',
-    link: function(scope, element, attrs, ngModel) {
+	return {
+		require: 'ngModel',
+		link: function(scope, element, attrs, ngModel) {
 
-		function read() {
-			ngModel.$setViewValue(element.html());
-		}
-
-		ngModel.$render = function() {
-			element.html(ngModel.$viewValue || "");
-		};
-
-		element.bind('blur keyup change', function() {
-			scope.$apply(read);
-		});
-
-		element.on('keydown', function(e) {
-			if (e.keyCode == 13) {
-				if (ngModel.$viewValue.length > 0) {
-					// element.submit();
-				}
-				return false;
+			function read() {
+				ngModel.$setViewValue(element.html());
 			}
-		});
+
+			ngModel.$render = function() {
+				element.html(ngModel.$viewValue || "");
+			};
+
+			element.bind('blur keyup change', function() {
+				scope.$apply(read);
+			});
+
+			element.on('keydown', function(e) {
+				if (e.keyCode == 13) {
+					if (ngModel.$viewValue && ngModel.$viewValue.length > 0) {
+						element.submit();
+					}
+					return false;
+				}
+			});
+		}
 	}
-  };
-};
+}).directive("scrollBottom", ['$timeout', function($timeout) {
+	return {
+		scope: {
+			scrollBottom: "="
+		},
+		link: function (scope, element) {
+			scope.$watchCollection('scrollBottom', function (newValue) {
+				if (newValue) {
+					$timeout(function() {
+						$(element).scrollTop($(element)[0].scrollHeight);
+					});
+				}
+			});
+		}
+	}
+}]);
