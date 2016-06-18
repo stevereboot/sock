@@ -9,6 +9,7 @@
 		"angular": "latest",
 		"ui-router": "latest",
 		"moment": "latest",
-		"angular-sanitize": "latest"
+		"angular-sanitize": "latest",
+		"angular-scroll-glue": "latest"
 	}
 }

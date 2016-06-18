@@ -10,13 +10,19 @@ main.controller('main',
 		'authService',
 		'$sce',
 		'$compile',
+		'$anchorScroll',
+		'$location',
+		'$timeout',
 	function(
 		$scope,
 		$state,
 		mainService,
 		authService,
 		$sce,
-		$compile
+		$compile,
+		$anchorScroll,
+		$location,
+		$timeout
 	) {
 
 		$scope.main = {};
@@ -79,6 +85,11 @@ main.controller('main',
 			$scope.main.messagelist.push(msg);
 
 			$scope.$apply();
+
+			$timeout(function() {
+				$location.hash('end');
+				$anchorScroll();
+			})			
 		};
 
 		$scope.main.embedOptions = {
@@ -131,7 +142,7 @@ main.controller('main',
 		}
 
 		$scope.main.select_emoji = function(emoji) {	
-			addHtmlAtCaret($scope.main.emoji_img(emoji), 'chatInput');	
+			addHtmlAtCaret($scope.main.emoji_img(emoji), 'chatInput');
 		}
 
 		function addHtmlAtCaret(html, id) {
@@ -171,22 +182,31 @@ main.controller('main',
 		}
 
 	}
-]).directive("contenteditable", function() {
+]).directive('contenteditable', function() {
   return {
-    require: "ngModel",
+    require: 'ngModel',
     link: function(scope, element, attrs, ngModel) {
 
-      function read() {
-        ngModel.$setViewValue(element.html());
-      }
+		function read() {
+			ngModel.$setViewValue(element.html());
+		}
 
-      ngModel.$render = function() {
-        element.html(ngModel.$viewValue || "");
-      };
+		ngModel.$render = function() {
+			element.html(ngModel.$viewValue || "");
+		};
 
-      element.bind("blur keyup change", function() {
-        scope.$apply(read);
-      });
-    }
+		element.bind('blur keyup change', function() {
+			scope.$apply(read);
+		});
+
+		element.on('keydown', function(e) {
+			if (e.keyCode == 13) {
+				if (ngModel.$viewValue.length > 0) {
+					// element.submit();
+				}
+				return false;
+			}
+		});
+	}
   };
-})
+};

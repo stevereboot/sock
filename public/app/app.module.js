@@ -1,7 +1,8 @@
 // public/app/app.module.js
 
 var thirdPartyApps = [
-    'ui.router'
+    'ui.router',
+    'luegg.directives'
 ]
 
 var sharedApps = [
