@@ -134,9 +134,13 @@ main.controller('main',
 
 
 		$scope.main.emoji_img = function(emoji) {
-			var size = 24;
-			return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
-			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'_indexed_256.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
+			var size = 64;
+			var scaled = 24;
+			var ratio = scaled / size;
+
+			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
+			return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px; zoom: '+ratio+'; -moz-transform:scale('+ratio+'); -moz-transform-origin: 0 0;">');
+			return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'_indexed_256.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px; zoom: '+ratio+'; -moz-transform:scale('+ratio+'); -moz-transform-origin: 0 0;">');
 			// return toolsService.toTrusted('<img src="img/emoji/' + emoji.image + '" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
 		}
 
