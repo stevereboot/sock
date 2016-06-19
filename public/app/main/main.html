@@ -41,15 +41,24 @@
 													<tr>
 														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'People' ? 'people2' : 'people'}}.png" height="24" width="24" alt="Smileys and People" ng-click="main.getEmoji('People'); $event.stopPropagation();"></td>
 														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Nature' ? 'nature2' : 'nature'}}.png" height="24" width="24" alt="Nature" ng-click="main.getEmoji('Nature'); $event.stopPropagation();"></td>
+<<<<<<< HEAD
 														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Foods' ? 'foods2' : 'foods'}}.png" height="24" width="24" alt="Foods" ng-click="main.getEmoji('Foods'); $event.stopPropagation();"></td>
 														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Places' ? 'places2' : 'places'}}.png" height="24" width="24" alt="Places" ng-click="main.getEmoji('Places'); $event.stopPropagation();"></td>
 														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Activity' ? 'activity2' : 'activity'}}.png" height="24" width="24" alt="Activity" ng-click="main.getEmoji('Activity'); $event.stopPropagation();"></td>
 														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Objects' ? 'objects2' : 'objects'}}.png" height="24" width="24" alt="Objects" ng-click="main.getEmoji('Objects'); $event.stopPropagation();"></td>
 														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Symbols' ? 'symbols2' : 'symbols'}}.png" height="24" width="24" alt="Symbols" ng-click="main.getEmoji('Symbols'); $event.stopPropagation();"></td>
 														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Flags' ? 'flags2' : 'flags'}}.png" height="24" width="24" alt="Flags" ng-click="main.getEmoji('Flags'); $event.stopPropagation();"></td>
+=======
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Foods' ? 'foods2' : 'foods'}}.png" height="24" width="24" alt="Foods" ng-click="main.getEmoji('Foods')"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Places' ? 'places2' : 'places'}}.png" height="24" width="24" alt="Smileys and People" ng-click="main.getEmoji('Places')"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Activity' ? 'activity2' : 'activity'}}.png" height="24" width="24" alt="Smileys and People" ng-click="main.getEmoji('Activity')"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Objects' ? 'objects2' : 'objects'}}.png" height="24" width="24" alt="Smileys and People" ng-click="main.getEmoji('Objects')"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Symbols' ? 'symbols2' : 'symbols'}}.png" height="24" width="24" alt="Smileys and People" ng-click="main.getEmoji('Symbols')"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Flags' ? 'flags2' : 'flags'}}.png" height="24" width="24" alt="Flags" ng-click="main.getEmoji('Flags')"></td>
+>>>>>>> refs/remotes/origin/master
 													</tr>
 													<tr ng-repeat="row in main.emojiList">
-														<td ng-repeat="e in row" style="padding: 5px;"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
+														<td ng-repeat="e in row" style="padding: 5px; height: 24px; width: 24px;"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
 													</tr>
 												</table>
 											</li>

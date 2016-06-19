@@ -107,6 +107,10 @@ main.controller('main',
 		}
 
 		$scope.main.getEmoji = function(category) {
+<<<<<<< HEAD
+=======
+			// event.stopPropagation();
+>>>>>>> refs/remotes/origin/master
 
 			// Fix this, make more efficient
 			// Create a json file that is already grouped (print this output)
@@ -144,7 +148,10 @@ main.controller('main',
 
 			return toolsService.toTrusted('<img src="img/emoji/img-apple-'+size+'/'+emoji.image+'" alt="' + emoji.short_name + '" style="width: '+scaled+'px; height: '+scaled+'px;">');
 			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/emoji/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px; zoom: '+ratio+'; -moz-transform:scale('+ratio+'); -moz-transform-origin: 0 0;">');
+<<<<<<< HEAD
 			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/emoji/sheet_apple_'+size+'_indexed_256.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px; zoom: '+ratio+'; -moz-transform:scale('+ratio+'); -moz-transform-origin: 0 0;">');
+=======
+>>>>>>> refs/remotes/origin/master
 		}
 
 		$scope.main.select_emoji = function(emoji) {	
