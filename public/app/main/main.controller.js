@@ -24,6 +24,8 @@ main.controller('main',
 
 		var socket = null;
 
+		$scope.main.thisEmoji = 'People';
+
 		// Check authentication
 		authService.user(function(resp) {
 			$scope.main.login = resp.username || false;
@@ -31,7 +33,7 @@ main.controller('main',
 			if ($scope.main.login) {
 				// do stuff if logged in
 				getAvatar();
-				$scope.main.getEmoji('People');
+				$scope.main.getEmoji($scope.main.thisEmoji);
 
 				// Connect to socket if logged in
 				socket = io();
@@ -105,6 +107,7 @@ main.controller('main',
 		}
 
 		$scope.main.getEmoji = function(category) {
+			event.stopPropagation();
 			mainService.getEmojiList({file: 'emoji.json'}).then(function(resp) {
 
 				var emoji_lib = toolsService.groupBy(resp, 'category');
@@ -113,7 +116,7 @@ main.controller('main',
 					return a.sort_order - b.sort_order;
 				})
 
-				var emoji_chunk = 6;
+				var emoji_chunk = 8;
 				var emoji_list = [];
 
 				// var foo = emoji_lib[category].slice(0, 60);
@@ -125,8 +128,10 @@ main.controller('main',
 				}
 
 				$scope.main.emojiList = emoji_list;
+				$scope.main.thisEmoji = category;
 			});
 		}
+
 
 		$scope.main.emoji_img = function(emoji) {
 			var size = 24;
@@ -137,14 +142,6 @@ main.controller('main',
 		$scope.main.select_emoji = function(emoji) {	
 			addHtmlAtCaret($scope.main.emoji_img(emoji), 'chatInput');
 		}
-
-		$scope.main.toggleEmoji = function(event) {
-			$scope.main.emojiPanel = !$scope.main.emojiPanel;
-			console.log($scope.main.emojiPanel)
-			// $scope.$apply();
-		}
-
-		$scope.main.emojiPanel = false;
 
 		function addHtmlAtCaret(html, id) {
 			document.getElementById(id).focus();
@@ -229,23 +226,4 @@ main.controller('main',
 			});
 		}
 	}
-}]).directive('clickAnywhereButHere', function($document, $parse) {
-    return {
-        restrict: 'A',
-        scope: {
-            callback : '=clickAnywhereButHere'
-        },
-        link: function(scope, element, attr, ctrl) {
-            var handler = function(event) {
-                if (!element[0].contains(event.target)) {
-                    scope.callback(event);
-                 }
-            };
-
-            $document.on('click', handler);
-            scope.$on('$destroy', function() {
-                $document.off('click', handler);
-            });
-        }
-    }
-});
+}]);
