@@ -35,19 +35,32 @@
 								<span class="input-group-btn dropup">
 									<div class="btn-group">
 										<button type="button" class="btn btn-default dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-lg fa-smile-o" aria-hidden="true" ng-click="main.toggleEmoji()" style="color: #555;"></i></button>
-										<ul class="dropdown-menu dropdown-menu-right" style="height: 180px; overflow-y: scroll; overflow-x: hidden;">
+										<ul class="dropdown-menu dropdown-menu-right" >
 											<li style="padding: 0 4px;">
 												<table>
 													<tr>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'People' ? 'people2' : 'people'}}.png" height="24" width="24" alt="Smileys and People" ng-click="main.getEmoji('People'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Nature' ? 'nature2' : 'nature'}}.png" height="24" width="24" alt="Nature" ng-click="main.getEmoji('Nature'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Foods' ? 'foods2' : 'foods'}}.png" height="24" width="24" alt="Foods" ng-click="main.getEmoji('Foods'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Places' ? 'places2' : 'places'}}.png" height="24" width="24" alt="Places" ng-click="main.getEmoji('Places'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Activity' ? 'activity2' : 'activity'}}.png" height="24" width="24" alt="Activity" ng-click="main.getEmoji('Activity'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Objects' ? 'objects2' : 'objects'}}.png" height="24" width="24" alt="Objects" ng-click="main.getEmoji('Objects'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Symbols' ? 'symbols2' : 'symbols'}}.png" height="24" width="24" alt="Symbols" ng-click="main.getEmoji('Symbols'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'Flags' ? 'flags2' : 'flags'}}.png" height="24" width="24" alt="Flags" ng-click="main.getEmoji('Flags'); $event.stopPropagation();"></td>
+														<td ng-repeat="cat in main.emojiCat" style="padding: 5px;">
+															<img ng-src="img/emoji/category/{{main.thisEmoji == cat.name ? cat.name+'2' : cat.name}}.png" height="24" width="24" alt="{{cat.label}}" ng-click="main.setEmoji({{cat.name}}); $event.stopPropagation();">
+														</td>
+														
+
+
+
+
+
+														<!-- <td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'people' ? 'people2' : 'people'}}.png" height="24" width="24" alt="Smileys and People" ng-click="main.setEmoji('people'); $event.stopPropagation();"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'nature' ? 'nature2' : 'nature'}}.png" height="24" width="24" alt="Nature" ng-click="main.getEmoji('nature'); $event.stopPropagation();"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'foods' ? 'foods2' : 'foods'}}.png" height="24" width="24" alt="Foods" ng-click="main.getEmoji('foods'); $event.stopPropagation();"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'places' ? 'places2' : 'places'}}.png" height="24" width="24" alt="Places" ng-click="main.getEmoji('places'); $event.stopPropagation();"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'activity' ? 'activity2' : 'activity'}}.png" height="24" width="24" alt="Activity" ng-click="main.getEmoji('activity'); $event.stopPropagation();"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'objects' ? 'objects2' : 'objects'}}.png" height="24" width="24" alt="Objects" ng-click="main.getEmoji('objects'); $event.stopPropagation();"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'symbols' ? 'symbols2' : 'symbols'}}.png" height="24" width="24" alt="Symbols" ng-click="main.getEmoji('symbols'); $event.stopPropagation();"></td>
+														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'flags' ? 'flags2' : 'flags'}}.png" height="24" width="24" alt="Flags" ng-click="main.getEmoji('flags'); $event.stopPropagation();"></td> -->
 													</tr>
+												</table>
+											</li>
+											<li style="padding: 0 4px; height: 175px; overflow-y: scroll; overflow-x: hidden;">
+												<table>
 													<tr ng-repeat="row in main.emojiList">
 														<td ng-repeat="e in row" style="padding: 5px;"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
 													</tr>
