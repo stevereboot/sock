@@ -135,8 +135,9 @@ main.controller('main',
 
 		$scope.main.emoji_img = function(emoji) {
 			var size = 24;
-			// return $scope.main.to_trusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
-			return toolsService.toTrusted('<img src="img/emoji/' + emoji.image + '" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
+			return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
+			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/sheet_apple_'+size+'_indexed_256.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
+			// return toolsService.toTrusted('<img src="img/emoji/' + emoji.image + '" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
 		}
 
 		$scope.main.select_emoji = function(emoji) {	
