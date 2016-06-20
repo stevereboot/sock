@@ -4,7 +4,7 @@
 			<div class="col-md-6">
 				<div class="panel panel-default chat">
 					<div class="panel-heading">
-						<img ng-src="img/avatar/{{main.myAvatar}}" height="35" width="35" alt="{{main.login}}">
+						<img ng-src="img/avatar/{{main.myAvatar}}" class="avatar-img" alt="{{main.login}}">
 						<span style="padding-left:10px">{{main.login}}</span>
 						</div> <!-- ./panel-heading -->
 					<div scroll-bottom="main.messagelist" class="panel-body" style="height: 400px; overflow-y: auto; overflow-x: hidden;">
@@ -12,7 +12,7 @@
 						<div ng-repeat="m in main.messagelist">
 
 							<div ng-class="m.class" ng-if="m.class != 'row user-joined'">
-								<div class="col-xs-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatar/{{m.avatar}}" height="35" width="35" alt="{{m.username}}"></div>
+								<div class="col-xs-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatar/{{m.avatar}}" class="avatar-img" alt="{{m.username}}"></div>
 								<div ng-class="m.class == 'row chat-receive' ? 'col-xs-8 msg' : 'col-xs-8 col-xs-offset-4 msg'">
 
 									<div class="msg-body">
@@ -51,16 +51,16 @@
 											<li style="padding: 0 4px;">
 												<table>
 													<tr>
-														<td ng-repeat="cat in main.emojiCat" style="padding: 5px;">
-															<img ng-src="img/emoji/category/{{main.thisEmoji == cat.name ? cat.name+'2' : cat.name}}.png" height="24" width="24" alt="{{cat.label}}" ng-click="main.setEmoji(cat.name, cat.index); $event.stopPropagation();">
+														<td ng-repeat="cat in main.emojiCat" class="emoji-cat-list">
+															<img class="emoji-cat-img" ng-src="img/emoji/category/{{main.thisEmoji == cat.name ? cat.name+'2' : cat.name}}.png" alt="{{cat.label}}" ng-click="main.setEmoji(cat.name, cat.index); $event.stopPropagation();">
 														</td>
 													</tr>
 												</table>
 											</li>
-											<li style="padding: 0 4px; height: 175px; overflow-y: scroll; overflow-x: hidden;">
+											<li class="emoji-picker">
 												<table>
 													<tr ng-repeat="row in main.emojiList[main.thisEmojiIndex]">
-														<td ng-repeat="e in row" style="padding: 5px;"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
+														<td ng-repeat="e in row" class="emoji-list"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
 													</tr>
 												</table>
 											</li>

@@ -39,3 +39,66 @@
     background-color: #E2FFC7;
     color: #555;
 }
+
+/* Mobile (<768px) */
+.emoji-picker {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 0 3px;
+	height: 133px;
+}
+
+.emoji-img {
+	width: 20px;
+	height: 20px;
+}
+
+.emoji-list {
+	padding: 3px;
+}
+
+.emoji-cat-img {
+	width: 20px;
+	height: 20px;
+}
+
+.emoji-cat-list {
+	padding: 3px;
+}
+
+.avatar-img {
+	width: 25px;
+	height: 25px;
+}
+
+/* Show for tablet or larger */
+@media (min-width: 768px) {
+.emoji-picker {
+		padding: 0 4px;
+		height: 175px;
+	}
+
+	.emoji-img {
+		width: 24px;
+		height: 24px;
+	}
+
+	.emoji-list {
+		padding: 5px;
+	}
+
+	.emoji-cat-img {
+		width: 24px;
+		height: 24px;
+	}
+
+	.emoji-cat-list {
+		padding: 5px;
+	}
+
+	.avatar-img {
+		width: 35px;
+		height: 35px;
+	}
+
+}

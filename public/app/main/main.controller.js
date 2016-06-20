@@ -182,7 +182,8 @@ main.controller('main',
 			var scaled = 24;
 			var ratio = scaled / size;
 
-			return toolsService.toTrusted('<img src="img/emoji/img-apple-'+size+'/'+emoji.image+'" alt="' + emoji.short_name + '" style="width: '+scaled+'px; height: '+scaled+'px;">');
+			return toolsService.toTrusted('<img class="emoji-img" src="img/emoji/img-apple-'+size+'/'+emoji.image+'" alt="' + emoji.short_name + '">');
+			// return toolsService.toTrusted('<img src="img/emoji/img-apple-'+size+'/'+emoji.image+'" alt="' + emoji.short_name + '" style="width: '+scaled+'px; height: '+scaled+'px;">');
 			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/emoji/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px; zoom: '+ratio+'; -moz-transform:scale('+ratio+'); -moz-transform-origin: 0 0;">');
 			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/emoji/sheet_apple_'+size+'_indexed_256.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px; zoom: '+ratio+'; -moz-transform:scale('+ratio+'); -moz-transform-origin: 0 0;">');
 		}
@@ -221,11 +222,12 @@ main.controller('main',
 						sel.addRange(range);
 					}
 
+					// Bind
 					$scope.main.chatmessage = document.getElementById(id).innerHTML;
 					
 				}
 			} else if (document.selection && document.selection.type != "Control") {
-			// IE < 9
+				// IE < 9
 				document.selection.createRange().pasteHTML(html);
 			}
 		}
