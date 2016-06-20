@@ -25,6 +25,7 @@ main.controller('main',
 		var socket = null;
 
 		$scope.main.thisEmoji = 'people';
+		$scope.main.thisEmojiIndex = 0;
 
 		// Check authentication
 		authService.user(function(resp) {
@@ -35,15 +36,29 @@ main.controller('main',
 				getAvatar();
 
 				prepEmoji();
-				$scope.main.getEmoji($scope.main.thisEmoji);
+				$scope.main.setEmoji($scope.main.thisEmoji, $scope.main.thisEmojiIndex);
 
 				// Connect to socket if logged in
 				socket = io();
+
+				socket.on('connect', function() {
+					// Send message to server with username
+					socket.emit('user_joined', {
+						senderid: socket.id,
+						username: $scope.main.login
+					});
+				});
 
 				// On new message
 				socket.on('chat_message', function(msg) {
 					getChat(msg);
 				});
+
+				// On new user joining
+				socket.on('user_joined', function(msg) {
+					newUser(msg);
+				});	
+
 			} else {
 				$state.go('login');
 			}
@@ -91,18 +106,19 @@ main.controller('main',
 			$scope.main.messagelist.push(msg);
 
 			$scope.$apply();
-	
 		};
 
-		$scope.main.embedOptions = {
-			image: {
-				embed: false
-			},
-			code: {
-				highlight  : false
-			},
-			tweetEmbed: false
-		}
+		function newUser(msg) {
+
+			msg.class = 'row user-joined';
+			msg.message = '<b>' + msg.username + '</b> has joined'
+
+			$scope.main.messagelist.push(msg);
+
+			$scope.$apply();
+		};
+
+
 
 		$scope.main.toTrusted = function(html) {
 			return toolsService.toTrusted(html);
@@ -128,14 +144,14 @@ main.controller('main',
 						label: 'Food and Drink'
 					},
 					{
-						name: 'places',
-						index: 3,
-						label: 'Travel & Places'
-					},
-					{
 						name: 'activity',
-						index: 4,
+						index: 3,
 						label: 'Activity'
+					},					
+					{
+						name: 'places',
+						index: 4,
+						label: 'Travel & Places'
 					},
 					{
 						name: 'objects',
@@ -156,38 +172,10 @@ main.controller('main',
 			});
 		}
 
-		$scope.main.setEmoji = function(category) {
+		$scope.main.setEmoji = function(category, index) {
 			$scope.main.thisEmoji = category;
-			$scope.main.thisEmojiIndex = category;
-
+			$scope.main.thisEmojiIndex = index;
 		}
-
-		$scope.main.getEmoji = function(category) {
-			// Fix this, make more efficient
-			// Create a json file that is already grouped (print this output)
-			// Pull this file once onload
-			// Then reference by index based on user click (don't even need this function, just a var)
-
-				// var emoji_lib = toolsService.groupBy(resp, 'category');
-
-				// emoji_lib[category].sort(function(a, b) { 
-				// 	return a.sort_order - b.sort_order;
-				// })
-
-				// var emoji_chunk = 8;
-				// var emoji_list = [];
-
-				// // var foo = emoji_lib[category].slice(0, 60);
-				// var foo = emoji_lib[category];
-
-				// for (var i = 0; i < foo.length; i += emoji_chunk) {
-				// 	var a = foo.slice(i, i + emoji_chunk);
-				// 	emoji_list.push(a);
-				// }
-
-				$scope.main.thisEmoji = category;
-		}
-
 
 		$scope.main.emoji_img = function(emoji) {
 			var size = 64;

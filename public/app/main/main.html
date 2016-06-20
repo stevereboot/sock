@@ -10,21 +10,33 @@
 					<div scroll-bottom="main.messagelist" class="panel-body" style="height: 400px; overflow-y: auto; overflow-x: hidden;">
 
 						<div ng-repeat="m in main.messagelist">
-							<div ng-class="m.class">
-								<div class="col-sm-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatar/{{m.avatar}}" height="35" width="35" alt="{{m.username}}"></div>
-								<div ng-class="m.class == 'row chat-receive' ? 'col-sm-8 msg' : 'col-sm-8 col-sm-offset-4 msg'">
+
+							<div ng-class="m.class" ng-if="m.class != 'row user-joined'">
+								<div class="col-xs-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatar/{{m.avatar}}" height="35" width="35" alt="{{m.username}}"></div>
+								<div ng-class="m.class == 'row chat-receive' ? 'col-xs-8 msg' : 'col-xs-8 col-xs-offset-4 msg'">
 
 									<div class="msg-body">
-										<div class="msg-user">{{m.username}}</div>
+										<div class="msg-user" ng-show="m.class == 'row chat-receive'">{{m.username}}</div>
 										<div ng-bind-html="main.toTrusted(m.message)"></div>
 									</div>
 
 									<div ng-class="m.class == 'row chat-receive' ? 'time' : 'time pull-right'">{{m.timeString}}</div>
 								</div>
 							</div>
+
+							<div ng-class="m.class" ng-if="m.class == 'row user-joined' && m.username != main.login">
+								<div class="col-xs-offset-2 col-xs-8 col-xs-offset-2 msg">
+									<div class="msg-body text-center">
+										<div ng-bind-html="main.toTrusted(m.message)"></div>
+									</div>
+								</div>
+								<!-- <p class="text-center">{{m.message}}</p> -->
+							</div>
+
 						</div>
 
 					</div>
+					
 					<div class="panel-footer">
 						<form ng-submit="main.sendchat(main.chatmessage)">
 							<div class="input-group">
@@ -40,28 +52,14 @@
 												<table>
 													<tr>
 														<td ng-repeat="cat in main.emojiCat" style="padding: 5px;">
-															<img ng-src="img/emoji/category/{{main.thisEmoji == cat.name ? cat.name+'2' : cat.name}}.png" height="24" width="24" alt="{{cat.label}}" ng-click="main.setEmoji({{cat.name}}); $event.stopPropagation();">
+															<img ng-src="img/emoji/category/{{main.thisEmoji == cat.name ? cat.name+'2' : cat.name}}.png" height="24" width="24" alt="{{cat.label}}" ng-click="main.setEmoji(cat.name, cat.index); $event.stopPropagation();">
 														</td>
-														
-
-
-
-
-
-														<!-- <td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'people' ? 'people2' : 'people'}}.png" height="24" width="24" alt="Smileys and People" ng-click="main.setEmoji('people'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'nature' ? 'nature2' : 'nature'}}.png" height="24" width="24" alt="Nature" ng-click="main.getEmoji('nature'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'foods' ? 'foods2' : 'foods'}}.png" height="24" width="24" alt="Foods" ng-click="main.getEmoji('foods'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'places' ? 'places2' : 'places'}}.png" height="24" width="24" alt="Places" ng-click="main.getEmoji('places'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'activity' ? 'activity2' : 'activity'}}.png" height="24" width="24" alt="Activity" ng-click="main.getEmoji('activity'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'objects' ? 'objects2' : 'objects'}}.png" height="24" width="24" alt="Objects" ng-click="main.getEmoji('objects'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'symbols' ? 'symbols2' : 'symbols'}}.png" height="24" width="24" alt="Symbols" ng-click="main.getEmoji('symbols'); $event.stopPropagation();"></td>
-														<td style="padding: 5px;"><img ng-src="img/emoji/category/{{main.thisEmoji == 'flags' ? 'flags2' : 'flags'}}.png" height="24" width="24" alt="Flags" ng-click="main.getEmoji('flags'); $event.stopPropagation();"></td> -->
 													</tr>
 												</table>
 											</li>
 											<li style="padding: 0 4px; height: 175px; overflow-y: scroll; overflow-x: hidden;">
 												<table>
-													<tr ng-repeat="row in main.emojiList">
+													<tr ng-repeat="row in main.emojiList[main.thisEmojiIndex]">
 														<td ng-repeat="e in row" style="padding: 5px;"><a href="" ng-click="main.select_emoji(e)" ng-bind-html="main.emoji_img(e)"></td>
 													</tr>
 												</table>

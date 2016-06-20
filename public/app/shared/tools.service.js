@@ -15,7 +15,7 @@ tools.service('toolsService', ['$sce',
 
 		this.toTrusted = function(html) {
 			return $sce.trustAsHtml(html);
-		}		
+		}	
 
 	}
 ]);

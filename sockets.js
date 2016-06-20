@@ -7,6 +7,13 @@ module.exports.listen = function(app) {
 	io.on('connection', function(socket) {
 		// console.log('a user connected');
 
+		socket.on('user_joined', function(msg) {
+			server_time = new Date();
+			msg.time = server_time.getTime();
+						
+			io.emit('user_joined', msg);
+		});
+
 		socket.on('chat_message', function(msg) {
 			server_time = new Date();
 			msg.time = server_time.getTime();

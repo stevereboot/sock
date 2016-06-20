@@ -33,3 +33,9 @@
 	font-size: 12px;
 	color: #777;
 }
+
+.chat .user-joined .msg-body {
+	padding: 5px 10px;
+    background-color: #E2FFC7;
+    color: #555;
+}
