@@ -27,6 +27,8 @@ main.controller('main',
 		$scope.main.thisEmoji = 'people';
 		$scope.main.thisEmojiIndex = 0;
 
+		$scope.main.users = [];
+
 		// Check authentication
 		authService.user(function(resp) {
 			$scope.main.login = resp.username || false;
@@ -49,6 +51,9 @@ main.controller('main',
 					});
 				});
 
+				//http://stackoverflow.com/questions/8284116/create-a-list-of-connected-clients-using-socket-io
+
+
 				// On new message
 				socket.on('chat_message', function(msg) {
 					getChat(msg);
@@ -57,6 +62,11 @@ main.controller('main',
 				// On new user joining
 				socket.on('user_joined', function(msg) {
 					newUser(msg);
+				});	
+
+				// On user leaving
+				socket.on('user_left', function(msg) {
+					byeUser(msg);
 				});	
 
 			} else {
@@ -109,15 +119,23 @@ main.controller('main',
 		};
 
 		function newUser(msg) {
-
 			msg.class = 'row user-joined';
-			msg.message = '<b>' + msg.username + '</b> has joined'
+			msg.message = '<b>' + msg.username + '</b> has joined';
 
-			$scope.main.messagelist.push(msg);
+			$scope.main.users = msg.userList;
 
 			$scope.$apply();
 		};
 
+		function byeUser(msg) {
+			msg.class = 'row user-left';
+			msg.message = '<b>' + msg.username + '</b> has left';
+
+			$scope.main.users = msg.userList;
+
+			$scope.main.messagelist.push(msg);
+			$scope.$apply();
+		};
 
 
 		$scope.main.toTrusted = function(html) {
@@ -194,12 +212,12 @@ main.controller('main',
 
 		function addHtmlAtCaret(html, id) {
 			document.getElementById(id).focus();
-			var sel, range;
+
 			if (window.getSelection) {
 				// IE9 and non-IE
-				sel = window.getSelection();
+				var sel = window.getSelection();
 				if (sel.getRangeAt && sel.rangeCount) {
-					range = sel.getRangeAt(0);
+					var range = sel.getRangeAt(0);
 					range.deleteContents();
 
 					// Range.createContextualFragment() would be useful here but is
@@ -207,13 +225,14 @@ main.controller('main',
 					var el = document.createElement("div");
 					el.innerHTML = html;
 					$compile(el)($scope);
+
 					var frag = document.createDocumentFragment(), node, lastNode;
 					while ( (node = el.firstChild) ) {
 						lastNode = frag.appendChild(node);
 					}
 					range.insertNode(frag);
 
-					// Preserve the selection
+					// Restore the selection
 					if (lastNode) {
 						range = range.cloneRange();
 						range.setStartAfter(lastNode);
@@ -222,16 +241,13 @@ main.controller('main',
 						sel.addRange(range);
 					}
 
-					// Bind
-					$scope.main.chatmessage = document.getElementById(id).innerHTML;
-					
+					// Do not bind in this function, will destroy selection- do it right before submit
 				}
 			} else if (document.selection && document.selection.type != "Control") {
 				// IE < 9
 				document.selection.createRange().pasteHTML(html);
 			}
 		}
-
 
 	}
 ]).directive('contenteditable', function() {
@@ -254,6 +270,7 @@ main.controller('main',
 			element.on('keydown', function(e) {
 				if (e.keyCode == 13) {
 					if (ngModel.$viewValue && ngModel.$viewValue.length > 0) {
+						scope.main.chatmessage = document.getElementById('chatInput').innerHTML;
 						element.submit();
 					}
 					return false;

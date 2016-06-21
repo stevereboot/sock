@@ -6,25 +6,28 @@
 					<div class="panel-heading">
 						<img ng-src="img/avatar/{{main.myAvatar}}" class="avatar-img" alt="{{main.login}}">
 						<span style="padding-left:10px">{{main.login}}</span>
+						
+						<!-- <span style="padding-left:10px">{{main.users}}</span> -->
+
 						</div> <!-- ./panel-heading -->
 					<div scroll-bottom="main.messagelist" class="panel-body" style="height: 400px; overflow-y: auto; overflow-x: hidden;">
 
 						<div ng-repeat="m in main.messagelist">
 
-							<div ng-class="m.class" ng-if="m.class != 'row user-joined'">
+							<div ng-class="m.class" ng-if="m.class != 'row user-joined' && m.class != 'row user-left'">
 								<div class="col-xs-1" ng-show="m.class == 'row chat-receive'"><img ng-src="img/avatar/{{m.avatar}}" class="avatar-img" alt="{{m.username}}"></div>
 								<div ng-class="m.class == 'row chat-receive' ? 'col-xs-8 msg' : 'col-xs-8 col-xs-offset-4 msg'">
 
 									<div class="msg-body">
 										<div class="msg-user" ng-show="m.class == 'row chat-receive'">{{m.username}}</div>
-										<div ng-bind-html="main.toTrusted(m.message)"></div>
+										<div ng-bind-html="main.toTrusted(m.message)" style="word-break: break-word;"></div>
 									</div>
 
 									<div ng-class="m.class == 'row chat-receive' ? 'time' : 'time pull-right'">{{m.timeString}}</div>
 								</div>
 							</div>
 
-							<div ng-class="m.class" ng-if="m.class == 'row user-joined' && m.username != main.login">
+							<div ng-class="m.class" ng-if="(m.class == 'row user-joined' || m.class == 'row user-left') && m.username != main.login">
 								<div class="col-xs-offset-2 col-xs-8 col-xs-offset-2 msg">
 									<div class="msg-body text-center">
 										<div ng-bind-html="main.toTrusted(m.message)"></div>
@@ -41,13 +44,13 @@
 						<form ng-submit="main.sendchat(main.chatmessage)">
 							<div class="input-group">
 
-								<div contenteditable id="chatInput" class="form-control" data-type="input" contenteditable="true" placeholder="Message..." ng-model="main.chatmessage">
+								<div contenteditable id="chatInput" class="form-control" data-type="input" contenteditable="true" placeholder="Message..." ng-model="main.chatmessage" style="overflow-y: auto; overflow-x: hidden;">
 								</div>
 
 								<span class="input-group-btn dropup">
 									<div class="btn-group">
 										<button type="button" class="btn btn-default dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-lg fa-smile-o" aria-hidden="true" ng-click="main.toggleEmoji()" style="color: #555;"></i></button>
-										<ul class="dropdown-menu dropdown-menu-right" >
+										<ul class="dropdown-menu dropdown-menu-right">
 											<li style="padding: 0 4px;">
 												<table>
 													<tr>
