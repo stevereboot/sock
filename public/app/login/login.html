@@ -62,9 +62,18 @@
 								<ul class="dropdown-menu">
 									<li style="padding: 0 4px;">
 										<table>
-										<tr ng-repeat="row in login.avatarList">
-											<td ng-repeat="a in row" style="padding: 2px;"><a href="" ng-click="login.select_avatar(a)" ng-bind-html="login.avatar_img(a)"></td>
-										</tr>
+											<tr>
+												<td ng-repeat="cat in login.avatarCat" class="emoji-cat-list">
+													<img class="avatar-img" ng-src="img/avatar/category/{{login.thisAvatarCat == cat.name ? cat.name+'2' : cat.name}}.png" alt="{{cat.label}}" ng-click="login.setAvatarCat(cat.name, cat.index); $event.stopPropagation();">
+												</td>
+											</tr>
+										</table>
+									</li>
+									<li class="avatar-picker">
+										<table>
+											<tr ng-repeat="row in login.avatarList[login.thisAvatarIndex]">
+												<td ng-repeat="e in row" class="emoji-list"><a href="" ng-click="login.select_avatar(e)" ng-bind-html="login.avatar_img(e)"></td>
+											</tr>
 										</table>
 									</li>
 								</ul>
