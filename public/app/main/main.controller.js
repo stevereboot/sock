@@ -10,13 +10,15 @@ main.controller('main',
 		'authService',
 		'toolsService',
 		'$compile',
+		'$window',
 	function(
 		$scope,
 		$state,
 		mainService,
 		authService,
 		toolsService,
-		$compile
+		$compile,
+		$window
 	) {
 
 		$scope.main = {};
@@ -204,6 +206,18 @@ main.controller('main',
 			// return toolsService.toTrusted('<img src="img/emoji/img-apple-'+size+'/'+emoji.image+'" alt="' + emoji.short_name + '" style="width: '+scaled+'px; height: '+scaled+'px;">');
 			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/emoji/sheet_apple_'+size+'.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px; zoom: '+ratio+'; -moz-transform:scale('+ratio+'); -moz-transform-origin: 0 0;">');
 			// return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/emoji/sheet_apple_'+size+'_indexed_256.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px; zoom: '+ratio+'; -moz-transform:scale('+ratio+'); -moz-transform-origin: 0 0;">');
+		}
+
+		$scope.main.emoji_sprite = function(emoji) {
+			var size;
+			var screenWidth = $window.innerWidth;
+			if (screenWidth < 768) {
+				size = 20
+			} else if (screenWidth >= 768) {
+				size = 24
+			}
+
+			return toolsService.toTrusted('<img src="img/img_trans.gif" alt="' + emoji.short_name + '" style="width: '+size+'px; height: '+size+'px; background: url(img/emoji/sheet_apple_'+size+'_indexed_256.png) ' + emoji.sheet_x * -size + 'px ' + emoji.sheet_y * -size + 'px;">');
 		}
 
 		$scope.main.select_emoji = function(emoji) {	
