@@ -6,8 +6,22 @@
 					<div class="panel-heading">
 						<img ng-src="img/avatar/{{main.myAvatar}}" class="avatar-img" alt="{{main.login}}">
 						<span style="padding-left:10px">{{main.login}}</span>
-						
-						<!-- <span style="padding-left:10px">{{main.users}}</span> -->
+							<div class="btn-group pull-right" pull-right>
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-users" aria-hidden="true" style="padding-right:5px"></i>{{main.users.length}} <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li style="padding: 0 4px;">
+										<table>
+											<tr ng-repeat="u in main.users | orderBy:'username'">
+												<td style="padding-bottom: 4px;">
+													<img class="avatar-img" ng-src="img/avatar/{{u.avatar}}" alt="{{u.username}}" ng-click="" style="margin-right:5px"><span>{{u.username}}</span>
+												</td>
+											</tr>
+										</table>
+									</li>
+								</ul>
+							</div> <!-- /.btn-group -->
 
 						</div> <!-- ./panel-heading -->
 					<div scroll-bottom="main.messagelist" class="panel-body" style="height: 400px; overflow-y: auto; overflow-x: hidden;">

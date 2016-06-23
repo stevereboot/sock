@@ -37,10 +37,13 @@ main.controller('main',
 
 			if ($scope.main.login) {
 				// do stuff if logged in
-				getAvatar();
+				getAvatar($scope.main.login);
 
 				prepEmoji();
 				$scope.main.setEmoji($scope.main.thisEmoji, $scope.main.thisEmojiIndex);
+
+				// Get previous message (count limit?)
+				getPrevMessages();
 
 				// Connect to socket if logged in
 				socket = io();
@@ -53,12 +56,10 @@ main.controller('main',
 					});
 				});
 
-				//http://stackoverflow.com/questions/8284116/create-a-list-of-connected-clients-using-socket-io
-
-
 				// On new message
 				socket.on('chat_message', function(msg) {
 					getChat(msg);
+					$scope.$apply();
 				});
 
 				// On new user joining
@@ -76,11 +77,27 @@ main.controller('main',
 			}
 		});
 
-		function getAvatar() {
+		function getAvatar(username) {
 			mainService.getAvatar({
-				username: $scope.main.login
+				username: username
 			}).then(function(resp) {
 				$scope.main.myAvatar = resp.avatar;
+			});
+		}
+
+		function getUserAvatars(users) {
+			mainService.getUserAvatars(users).then(function(resp) {
+				for (i in users) {
+					$scope.main.users[i].avatar = resp[i].avatar;
+				}
+			});
+		}
+
+		function getPrevMessages() {
+			mainService.getPrevMessages().then(function(resp) {
+				for (i in resp) {
+					getChat(resp[i].msg);
+				}
 			});
 		}
 
@@ -100,7 +117,8 @@ main.controller('main',
 		function getChat(msg) {
 			msg.class = 'row chat-receive';
 
-			if (msg.senderid == socket.id) {
+			// if (msg.senderid == socket.id) {
+			if (msg.username == $scope.main.login) {
 				msg.class = 'row chat-send';
 			}
 
@@ -117,26 +135,43 @@ main.controller('main',
 
 			$scope.main.messagelist.push(msg);
 
-			$scope.$apply();
+			// $scope.$apply();
 		};
 
 		function newUser(msg) {
 			msg.class = 'row user-joined';
 			msg.message = '<b>' + msg.username + '</b> has joined';
 
-			$scope.main.users = msg.userList;
+			$scope.main.users = [];
+			for (i in msg.userList) {
+				$scope.main.users.push({
+					username: msg.userList[i]
+				});
+			}
+
+			$scope.main.messagelist.push(msg);
+			getUserAvatars($scope.main.users);
 
 			$scope.$apply();
+
 		};
 
 		function byeUser(msg) {
 			msg.class = 'row user-left';
 			msg.message = '<b>' + msg.username + '</b> has left';
 
-			$scope.main.users = msg.userList;
+			$scope.main.users = [];
+			for (i in msg.userList) {
+				$scope.main.users.push({
+					username: msg.userList[i]
+				});
+			}
 
 			$scope.main.messagelist.push(msg);
+			getUserAvatars($scope.main.users);
+
 			$scope.$apply();
+
 		};
 
 

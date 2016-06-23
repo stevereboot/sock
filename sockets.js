@@ -1,14 +1,16 @@
 var io = require('socket.io');
 var Account = require('./models/account');
+var Chat = require('./models/chat');
+
 
 module.exports.listen = function(app) {
 	io = io.listen(app);
 
+	var userList = [];
+	var username;
+
 	io.on('connection', function(socket) {
 		// console.log('a user connected');
-
-		var userList  = [];
-		var username;
 
 		socket.on('user_joined', function(msg) {
 			server_time = new Date();
@@ -27,8 +29,7 @@ module.exports.listen = function(app) {
 				username: username
 			}
 
-			var i = userList.indexOf(username);
-			userList.splice(i, 1);
+			userList.splice(userList.indexOf(username), 1);
 
 			msg.userList = userList;
 
@@ -51,6 +52,15 @@ module.exports.listen = function(app) {
 				msg.avatar = data.avatar;
 				
 				io.emit('chat_message', msg);
+
+				// Add to db
+				Chat.create({
+					msg: msg
+				}, function(err, data) {
+					if (err) {
+						console.log(err);
+					}
+				});
 			});
 		});
 	});
