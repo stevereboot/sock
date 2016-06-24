@@ -7,6 +7,6 @@ module.exports = function(req, res) {
 		if (err) {
 			res.sendStatus(404);
 		}
-		res.json(data);
-	}).limit(100);
+		res.json(data.reverse());
+	}).sort({$natural: -1}).limit(100);
 };
