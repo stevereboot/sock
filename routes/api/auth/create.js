@@ -14,16 +14,17 @@ module.exports = function(req, res) {
 		function(err, account) {
 			if (err) {
 				res.send({error: err});
-			}
-
-			if (req.body.loginAfter) {
-				// Login after creating
-				passport.authenticate('local')(req, res, function() {
-					// console.log(req.user.username + ' is registered and logged in');
-					res.send(req.user.username);
-				});
+				// console.log(err)
 			} else {
-				res.send(req.body.username);
+				if (req.body.loginAfter) {
+					// Login after creating
+					passport.authenticate('local')(req, res, function() {
+						// console.log(req.user.username + ' is registered and logged in');
+						res.send(req.user.username);
+					});
+				} else {
+					res.send(req.body.username);
+				}
 			}
 		}
 	)

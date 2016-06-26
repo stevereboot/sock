@@ -38,11 +38,11 @@ login.controller('login',
 
 			authService.login($scope.login.loginForm, function(resp) {
 				if (resp) {
-					console.log(resp + ' has been logged in');
+					// console.log(resp + ' has been logged in');
 					$state.go('main');
 				} else {
-					console.log('Invalid username or password');
-					$scope.login.message = 'Invalid username or password';
+					// console.log('Invalid username or password');
+					$scope.login.login_message = 'Invalid username or password';
 				}
 			});    
 		}
@@ -56,7 +56,7 @@ login.controller('login',
 
 			if ($scope.login.registerForm.password != 
 					$scope.login.registerForm.passwordConfirm) {
-				console.log('Passwords do not match');
+				$scope.login.register_message = 'Passwords do not match';
 				return;
 			}
 
@@ -67,9 +67,9 @@ login.controller('login',
 			authService.create($scope.login.registerForm, function(resp) {
 				if (resp) {
 					if (resp.error) {
-						console.log(resp.error.message);
+						$scope.login.register_message = resp.error.message;
 					} else {
-						console.log(resp + ' has been registered');
+						// console.log(resp + ' has been registered');
 						$state.go('main');
 					}
 				}
@@ -130,8 +130,7 @@ login.controller('login',
 		});
 
 		$scope.login.avatar_img = function(avatar) {
-			var size = 35;
-			return toolsService.toTrusted('<img src="img/avatar/' + avatar.category + '/' + avatar.image + '" alt="' + avatar.short_name + '" style="width: '+size+'px; height: '+size+'px;">');
+			return toolsService.toTrusted('<img class="avatar-img" src="img/avatar/' + avatar.category + '/' + avatar.image + '" alt="' + avatar.short_name + '">');
 		}
 
 		$scope.login.setAvatarCat = function(category, index) {

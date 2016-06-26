@@ -6,7 +6,7 @@
 					<h3 class="panel-title">Sign in</h3>
 				</div> <!-- /.panel-heading -->
 				<div class="panel-body">
-					<div class="alert alert-danger" role="alert" ng-if="login.message">{{login.message}}</div>
+					<div class="alert alert-danger" role="alert" ng-if="login.login_message">{{login.login_message}}</div>
 					<form>
 						<div class="form-group">
 							<label for="loginUsername">Username</label>
@@ -38,6 +38,7 @@
 					<h3 class="panel-title">Register for an account</h3>
 				</div> <!-- /.panel-heading -->
 				<div class="panel-body">
+					<div class="alert alert-danger" role="alert" ng-if="login.register_message">{{login.register_message}}</div>
 					<form>
 						<div class="form-group">
 							<label for="registerUsername">Username</label>

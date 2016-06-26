@@ -54,16 +54,12 @@
 	height: 133px;
 }
 
-
-
 .avatar-picker {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	padding: 0 3px;
 	height: 133px;
 }
-
-
 
 .emoji-img {
 	width: 20px;
